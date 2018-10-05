@@ -12,6 +12,7 @@ public class quizHandler extends SimpleTagSupport {
 
     ApplicationDAO dao = new ApplicationDAO();
     private int userId;
+    private String theme;
 
     public int getUserId() {
         return userId;
@@ -21,11 +22,17 @@ public class quizHandler extends SimpleTagSupport {
         this.userId = userId;
     }
 
+    public String getTheme() { return theme; }
+
+    public void setTheme(String theme) { this.theme = theme; }
+
     @Override
     public void doTag() throws JspException {
 
         List<Quiz> quizzes = null;
-        quizzes = dao.getQuizByTeacher(userId);
+        System.out.println("into tagHandler, userId " + userId + " - theme " + theme);
+
+        quizzes = dao.getQuizByTeacherByTheme(userId, theme);
 
         if(quizzes != null){
             getJspContext().setAttribute("quizzes", quizzes);

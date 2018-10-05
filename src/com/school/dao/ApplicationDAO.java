@@ -236,13 +236,13 @@ public class ApplicationDAO {
         return users;
     }
 
-    public List<Quiz> getQuizByTeacher(int teacherId){
+    public List<Quiz> getQuizByTeacherByTheme(int teacherId, String theme){
 
-        System.out.println("into getQuizByTeacher");
+        System.out.println("into getQuizByTeacherByTheme");
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ?;";
+        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ? AND quiz_theme = ?;";
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -252,6 +252,7 @@ public class ApplicationDAO {
         try {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, teacherId);
+            preparedStatement.setString(2, theme);
             result = preparedStatement.executeQuery();
 
             while(result.next()){
@@ -260,6 +261,7 @@ public class ApplicationDAO {
                 quiz.setTheme(result.getString("quiz_theme"));
                 quiz.setNber_questions(result.getInt("quiz_nber_questions"));
                 quiz.setTeacher_id(result.getInt("quiz_teacher_id"));
+                System.out.println("quiz theme and teacher " + quiz.getTheme() + " " + quiz.getTeacher_id());
 
                 // add to list
                 quizzes.add(quiz);
@@ -490,7 +492,7 @@ public class ApplicationDAO {
     // STATIC FUNCTIONS
     public static String getMd5(String password)
     {
-        System.out.println("in getDDM5 - password " + password);
+        System.out.println("in getMd5");
         try {
 
             // Static getInstance method is called with hashing MD5
@@ -509,7 +511,6 @@ public class ApplicationDAO {
                 hashtext = "0" + hashtext;
             }
 
-            System.out.println("in getDDM5 - passwordHash " + hashtext);
             return hashtext;
         }
 

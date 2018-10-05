@@ -43,13 +43,13 @@ public class LogIn extends HttpServlet {
 
             if (status.equals("IN")) {
                 session.setAttribute("intern", user);
-                req.getRequestDispatcher("/JSP/profileIntern.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/profileIntern");
             } else if (status.equals("TE")) {
                 session.setAttribute("teacher", user);
-                req.getRequestDispatcher("/JSP/profileTeacher.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/profileTeacher");
             } else if (status.equals("AD")) {
                 session.setAttribute("admin", user);
-                req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req, resp);
+                resp.sendRedirect(req.getContextPath() + "/profileAdmin");
             }
         }
         else {

@@ -31,55 +31,68 @@
     <br>
     <br>
 
-    <mtag:getQuiz userId="${sessionScope.teacher.getId()}"/>
-    <c:if test="${quizzes != null}">
-        <h3>Quiz</h3>
-        <br>
-        <br>
-        <div class="row justify-content-md-center">
-            <div class="col-lg-8">
-                <div class="bs-component">
-                    <table class="table table-hover table-sm">
-                        <thead>
+    <mtag:getTheme />
+    <c:if test="${themes != null}">
+    <h3>Quiz</h3>
+    <ul class="nav nav-tabs">
+        <c:forEach items="${themes}" var="theme" varStatus="loop">
+        <li class="nav-item">
+            <a class="nav-link" role="tab" data-toggle="tab" href="#${theme}">${theme}</a>
+        </li>
+        </c:forEach>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <c:forEach items="${themes}" var="themeTab" varStatus="loop">
+            <mtag:getQuiz userId="${sessionScope.teacher.getId()}" theme="${themeTab}" />
+            <c:if test="${quizzes != null}">
+            <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
+                <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th scope="col>">Id</th>
+                        <th scope="col">Questions</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${quizzes}" var="q" varStatus="loop">
                         <tr>
-                            <th scope="col">Theme</th>
-                            <th scope="col">Question</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${quizzes}" var="q" varStatus="loop">
-                            <tr>
-                                <td>${q.getTheme()}</td>
-                                <td>${q.getNber_questions()}</td>
-                                <td>
+                            <td>${q.getId()}</td>
+                            <td>${q.getTheme()}</td>
+                            <td>
                                 <form action="profileTeacher" method="post">
-                                    <input hidden type="text" name="quizEdit" value="${q.getId()}">
-                                    <button type="submit" name="quizEdit" class="btn btn-info btn-sm">Edit</button>
-                                    <button type="submit" name="quizDelete" class="btn btn-danger btn-sm">Delete</button>
+                                    <input hidden type="text" name="editQ" value="${q.getId()}">
+                                    <button type="submit" name="editQ" class="btn btn-info btn-sm">Edit</button>
                                 </form>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+                            </td>
+                            <td>
+                                <form action="profileTeacher" method="post">
+                                    <input hidden type="text" name="deleteQ" value="${q.getId()}">
+                                    <button type="submit" name="deleteQ" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </c:if>
-    <c:if test="${quizzes == null}">
-        <h3>Quiz</h3>
-        <br>
-        <br>
-        <div class="row justify-content-md-center">
-            <div class="col-lg-12">
-                <div class="alert alert-dismissible alert-warning">
-                    <strong>Heads up! </strong>${noquiz}
+            </c:if>
+            <c:if test="${noquiz != null}">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissible alert-warning">
+                        <strong>Heads up! </strong>${noquiz}
+                    </div>
                 </div>
-            </div>
-        </div>
+            </c:if>
+        </c:forEach>
+    </div>
+
     </c:if>
+
+    <br>
+    <br>
+    <br>
 
     <mtag:getIntern/>
     <c:if test="${interns != null}">
@@ -170,5 +183,18 @@
     </div>
 </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".nav-tabs a").click(function(){
+            $(".tab-pane").hide();
+            var id = $(this).attr('href');
+            $(id).show();
+            $(id).css("opacity", 1);
+        });
+    });
+</script>
+
 </body>
 </html>
