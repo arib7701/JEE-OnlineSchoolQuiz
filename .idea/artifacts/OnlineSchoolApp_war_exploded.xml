@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="OnlineSchoolApp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="OnlineSchoolApp/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="OnlineSchoolApp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="mysql-connector-java-5.1.47-bin" />
+          <element id="library" level="application" name="taglibs-standard-impl-1.2.5" />
+          <element id="library" level="application" name="jsf-api-2.2.9" />
+          <element id="library" level="application" name="jsf-impl-2.2.9" />
+          <element id="library" level="application" name="primefaces-6.2" />
+          <element id="library" level="project" name="Hibernate 5.3.6-5.3.6" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

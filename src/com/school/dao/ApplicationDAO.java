@@ -1,0 +1,521 @@
+package com.school.dao;
+
+import com.school.beans.*;
+
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ApplicationDAO {
+
+
+    // GET FUNCTIONS
+    public List<Question> getQuestionsQuiz(int quizId){
+
+        System.out.println("into getQuestionsQuiz");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM questions WHERE question_quiz_id = ? ORDER BY RAND() LIMIT 5;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        Question question = new Question();
+        List<Question> questions = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                question = new Question();
+                question.setId(result.getInt("question_id"));
+                question.setProblem(result.getString("question_problem"));
+                question.setPossibility_1(result.getString("question_pos1"));
+                question.setPossibility_2(result.getString("question_pos2"));
+                question.setPossibility_3(result.getString("question_pos3"));
+                question.setPossibility_4(result.getString("question_pos4"));
+                question.setCorrect_answer(result.getString("question_answer"));
+                question.setQuiz_id(quizId);
+
+                // add to list
+                questions.add(question);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return questions;
+    }
+
+    public String getAnswerOfQuestion(int questionId){
+
+        System.out.println("into getAnswerOfQuestion");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT question_answer FROM questions WHERE question_id = ?;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        String answer = null;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, questionId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                answer = result.getString("question_answer");
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return answer;
+    }
+
+    public List<Quiz> getQuizByTHeme(String theme){
+
+        System.out.println("into getQuizByTheme");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM quiz WHERE quiz_theme = ?;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        Quiz quiz;
+        List<Quiz> quizzes = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, theme);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                quiz = new Quiz();
+                quiz.setId(result.getInt("quiz_id"));
+                quiz.setTheme(result.getString("quiz_theme"));
+                quiz.setNber_questions(result.getInt("quiz_nber_questions"));
+                quiz.setTeacher_id(result.getInt("quiz_teacher_id"));
+
+                // add to list
+                quizzes.add(quiz);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return quizzes;
+    }
+
+    public List<String> getThemes() {
+
+        System.out.println("into getTheme");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT DISTINCT quiz_theme FROM quiz";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        String theme;
+        List<String> themes = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                theme = result.getString(1);
+                // add to list
+                themes.add(theme);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return themes;
+    }
+
+    public List<Grade> getGradeByIntern(int intern_id){
+
+        System.out.println("into getGradeByIntern");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM grade WHERE grade_intern_id = ?";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        List<Grade> grades = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, intern_id);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                Grade grade = new Grade();
+                grade.setGrade_id(result.getInt("grade_id"));
+                grade.setIntern_id(result.getInt("grade_intern_id"));
+                grade.setQuiz_id(result.getInt("grade_quiz_id"));
+                grade.setGrade_value(result.getDouble("grade_value"));
+                grade.setGrade_date(result.getDate("grade_date"));
+
+                // add to list
+                grades.add(grade);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return grades;
+    }
+
+    public List<User> getAllInterns(){
+        System.out.println("into getAllInterns");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM intern;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        User user;
+        List<User> users = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                user = new User();
+                user.setId(result.getInt("intern_id"));
+                user.setFirstname(result.getString("intern_firstname"));
+                user.setLastname(result.getString("intern_lastname"));
+                user.setEmail(result.getString("intern_email"));
+                user.setUsername(result.getString("intern_username"));
+                user.setPassword(result.getString("intern_password"));
+
+                // add to list
+                users.add(user);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
+    public List<Quiz> getQuizByTeacher(int teacherId){
+
+        System.out.println("into getQuizByTeacher");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ?;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        Quiz quiz;
+        List<Quiz> quizzes = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, teacherId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                quiz = new Quiz();
+                quiz.setId(result.getInt("quiz_id"));
+                quiz.setTheme(result.getString("quiz_theme"));
+                quiz.setNber_questions(result.getInt("quiz_nber_questions"));
+                quiz.setTeacher_id(result.getInt("quiz_teacher_id"));
+
+                // add to list
+                quizzes.add(quiz);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return quizzes;
+    }
+
+
+
+
+    // VERIFY FUNCTIONS
+    public User logInUser(String status, String username){
+
+        System.out.println("into logInUser");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = new String();
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        User user = new User();
+        String table = new String();
+
+        if(status.equals("IN")){
+            table = "intern";
+            query = "SELECT * FROM intern WHERE intern_username = ?;";
+        } else if (status.equals("TE")){
+            table = "teacher";
+            query = "SELECT * FROM teacher WHERE teacher_username = ?;";
+        } else if (status.equals("AD")){
+            table = "admin";
+            query = "SELECT * FROM admin WHERE admin_username = ?;";
+        }
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                user.setId(result.getInt(table+"_id"));
+                user.setFirstname(result.getString(table+"_firstname"));
+                user.setLastname(result.getString(table+"_lastname"));
+                user.setEmail(result.getString(table+"_email"));
+                user.setUsername(result.getString(table+"_username"));
+                user.setPassword(result.getString(table+"_password"));
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
+
+
+
+    // CREATE FUNCTIONS
+    public int addNewUser(User user, String status){
+
+        System.out.println("into addNewUser");
+
+        String hashPassword = getMd5(user.getPassword());
+        user.setPassword(hashPassword);
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = null;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        if(status.equals("IN")){
+            query = "INSERT INTO intern (`intern_firstname`, `intern_lastname`, `intern_email`, `intern_username`, `intern_password`) VALUES (?,?,?,?,?);";
+        } else if (status.equals("TE")){
+            query = "INSERT INTO teacher (`teacher_firstname`, `teacher_lastname`, `teacher_email`, `teacher_username`, `teacher_password`) VALUES (?,?,?,?,?);";
+        } else if (status.equals("AD")){
+            query = "INSERT INTO admin (`admin_firstname`, `admin_lastname`, `admin_email`, `admin_username`, `admin_password`) VALUES (?,?,?,?,?);";
+        }
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getFirstname());
+            preparedStatement.setString(2, user.getLastname());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getUsername());
+            preparedStatement.setString(5, user.getPassword());
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+
+    }
+
+    public int addNewGrade(Grade grade){
+
+        System.out.println("into addNewGrade");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "INSERT INTO grade (`grade_quiz_id`, `grade_intern_id`, `grade_value`, `grade_date`) VALUES (?,?,?,?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, grade.getQuiz_id());
+            preparedStatement.setInt(2, grade.getIntern_id());
+            preparedStatement.setDouble(3, grade.getGrade_value());
+            preparedStatement.setDate(4, grade.getGrade_date());
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+    }
+
+    public int addNewQuiz(Quiz quiz){
+
+        System.out.println("into addNewQuiz");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+        int quizId = 0;
+
+        query = "INSERT INTO quiz (`quiz_theme`, `quiz_nber_questions`) VALUES (?,?,?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, quiz.getTheme());
+            preparedStatement.setInt(2, quiz.getNber_questions());
+            preparedStatement.setInt(3,quiz.getTeacher_id());
+            rowAffected = preparedStatement.executeUpdate();
+
+            if(rowAffected > 0){
+                query = "SELECT quiz_id FROM quiz ORDER BY quiz_id DESC LIMIT 1;";
+                preparedStatement = connection.prepareStatement(query);
+                ResultSet result = preparedStatement.executeQuery();
+                if(result.next()){
+                    quizId = result.getInt(1);
+                }
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return quizId;
+    }
+
+    public int addNewQuestion(Question question){
+
+        System.out.println("into addNewQuestion");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+        int qId = 0;
+
+        query = "INSERT INTO questions (`question_problem`, `question_pos1`, `question_pos2`, `question_pos3`, `question_pos4`, `question_answer`, `question_quiz_id`) VALUES (?,?,?,?,?,?,?);";
+
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, question.getProblem());
+            preparedStatement.setString(2, question.getPossibility_1());
+            preparedStatement.setString(3, question.getPossibility_2());
+            preparedStatement.setString(4, question.getPossibility_3());
+            preparedStatement.setString(5, question.getPossibility_4());
+            preparedStatement.setString(6, question.getCorrect_answer());
+            preparedStatement.setInt(7, question.getQuiz_id());
+            rowAffected = preparedStatement.executeUpdate();
+
+            if(rowAffected > 0){
+                query = "SELECT question_id FROM questions ORDER BY question_id DESC LIMIT 1;";
+                preparedStatement = connection.prepareStatement(query);
+                ResultSet result = preparedStatement.executeQuery();
+                if(result.next()){
+                    qId = result.getInt(1);
+                }
+            }
+
+            connection.close();
+        }
+        catch (SQLException e) {
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return qId;
+    }
+
+
+
+    // STATIC FUNCTIONS
+    public static String getMd5(String password)
+    {
+        System.out.println("in getDDM5 - password " + password);
+        try {
+
+            // Static getInstance method is called with hashing MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // digest() method is called to calculate message digest
+            //  of an input digest() return array of byte
+            byte[] messageDigest = md.digest(password.getBytes());
+
+            // Convert byte array into signum representation
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            // Convert message digest into hex value
+            String hashtext = no.toString(16);
+            while (hashtext.length() < 32) {
+                hashtext = "0" + hashtext;
+            }
+
+            System.out.println("in getDDM5 - passwordHash " + hashtext);
+            return hashtext;
+        }
+
+        // For specifying wrong message digest algorithms
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

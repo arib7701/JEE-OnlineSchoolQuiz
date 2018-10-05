@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>schoolTag</short-name>
+    <uri>http://onlineschool.com/tags</uri>
+
+    <tag>
+        <name>getTheme</name>
+        <tag-class>com.school.tags.themeHandler</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+    <tag>
+        <name>getGrade</name>
+        <tag-class>com.school.tags.gradeHandler</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>userId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>getIntern</name>
+        <tag-class>com.school.tags.internHandler</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>getQuiz</name>
+        <tag-class>com.school.tags.quizHandler</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>userId</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>
