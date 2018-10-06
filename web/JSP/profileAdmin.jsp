@@ -66,7 +66,7 @@
                                         <button type="submit" name="idInternGrade" class="btn btn-info btn-sm">See</button>
                                     </form>
                                 </td>
-                                <td>${averages[loop.index]}</td>
+                                <td>${averages[loop.index]}%</td>
                                 <td>
                                     <form action="profileAdmin" method="post">
                                         <input hidden type="text" name="idInternDelete" value="${i.getId()}">
@@ -121,11 +121,11 @@
             </div>
         </c:if>
         <c:if test="${requestScope.nograde != null}">
-            <h3>Grades</h3>
             <br>
             <br>
-            <div class="row justify-content-md-center">
-                <div class="col-lg-12">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
+                    <h3>Grades</h3>
                     <div class="alert alert-dismissible alert-danger">
                         <strong>Heads up! </strong>${nograde}
                     </div>
@@ -217,11 +217,11 @@
             </div>
         </c:if>
         <c:if test="${requestScope.noquiz != null}">
-            <h3>Quizzes</h3>
             <br>
             <br>
-            <div class="row justify-content-md-center">
-                <div class="col-lg-12">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
+                    <h3>Quizzes</h3>
                     <div class="alert alert-dismissible alert-danger">
                         <strong>Heads up! </strong>${noquiz}
                     </div>
@@ -238,7 +238,7 @@
 
     <mtag:getPoolQuestion/>
     <div class="row">
-        <c:if test="${requestScope.questionsPool != null}">
+        <c:if test="${questionsPool != null}">
             <div class="col-lg-6">
                 <div class="bs-component">
                     <h2>Pool Questions</h2>
@@ -253,11 +253,11 @@
                         <c:forEach items="${questionsPool}" var="qp" varStatus="loop">
                             <tr>
                                 <td>${qp.getId()}</td>
-                                <td>${gp.getProblem()}</td>
+                                <td>${qp.getProblem()}</td>
                                 <td>
                                     <form action="profileAdmin" method="post">
-                                        <input hidden type="text" name="asignQuestion" value="${qp.getId()}">
-                                        <button type="submit" name="asignQuestion" class="btn btn-info btn-sm">Assign</button>
+                                        <input hidden type="text" name="assignQuestion" value="${qp.getId()}">
+                                        <button type="submit" name="assignQuestion" class="btn btn-info btn-sm">Assign</button>
                                     </form>
                                 </td>
                                 <td>
@@ -273,7 +273,7 @@
                 </div>
             </div>
         </c:if>
-        <c:if test="${requestScope.poolEmpty != null}">
+        <c:if test="${poolEmpty != null}">
             <h3>Pool Questions</h3>
             <br>
             <br>
@@ -281,6 +281,63 @@
                 <div class="col-lg-12">
                     <div class="alert alert-dismissible alert-info">
                         <strong>Heads up! </strong>${poolEmpty}
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </div>
+
+    <br>
+    <br>
+    <hr style="background-color: white">
+    <br>
+    <br>
+
+    <mtag:getPoolQuiz/>
+    <div class="row">
+        <c:if test="${quizzesPool != null}">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <h2>Pool Quiz</h2>
+                    <table class="table table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Problem</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${quizzesPool}" var="quizzp" varStatus="loop">
+                            <tr>
+                                <td>${quizzp.getId()}</td>
+                                <td>${quizzp.getTheme()}</td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="assignQuiz" value="${quizzp.getId()}">
+                                        <button type="submit" name="assignQuiz" class="btn btn-info btn-sm">Assign</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="quizDelete" value="${quizp.getId()}">
+                                        <button type="submit" name="quizDelete" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${poolQuizEmpty != null}">
+            <h3>Pool Quiz</h3>
+            <br>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissible alert-info">
+                        <strong>Heads up! </strong>${poolQuizEmpty}
                     </div>
                 </div>
             </div>

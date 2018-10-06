@@ -20,6 +20,7 @@ public class ProfileAdmin extends HttpServlet {
 
         ApplicationDAO dao = new ApplicationDAO();
 
+        // See Intern Grades Details
         if(req.getParameter("idInternGrade") != null){
             int internId = Integer.parseInt(req.getParameter("idInternGrade"));
             List<Grade> grades = dao.getGradeByIntern(internId);
@@ -33,6 +34,8 @@ public class ProfileAdmin extends HttpServlet {
 
             req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
         }
+
+        // Delete Intern from DB
         else if(req.getParameter("idInternDelete") != null){
             int internId = Integer.parseInt(req.getParameter("idInternDelete"));
             int deleted = dao.deleteUserById(internId, "IN");
@@ -43,6 +46,8 @@ public class ProfileAdmin extends HttpServlet {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
         }
+
+        // See Teacher's Quiz Details
         else if(req.getParameter("idTeacherQuiz") != null){
             int teacherId = Integer.parseInt(req.getParameter("idTeacherQuiz"));
 
@@ -64,12 +69,14 @@ public class ProfileAdmin extends HttpServlet {
                 req.setAttribute("averagesQuiz", averages);
                 req.setAttribute("quizzes", quizzes);
             } else {
-                String noquiz = "This intern has not make any quiz yet.";
-                req.setAttribute("noqiz", noquiz);
+                String noquiz = "This teacher has made no quiz yet.";
+                req.setAttribute("noquiz", noquiz);
             }
 
             req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
         }
+
+        // Delete Teacher from DB
         else if(req.getParameter("idTeacherDelete") != null){
             int teacherId = Integer.parseInt(req.getParameter("idTeacherDelete"));
             int deleted = dao.deleteUserById(teacherId, "TE");
@@ -80,10 +87,48 @@ public class ProfileAdmin extends HttpServlet {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
         }
-         else if(req.getParameter("newUser") != null){
+
+        // Add New User
+        else if(req.getParameter("newUser") != null){
              req.setAttribute("status", "notIntern");
              req.setAttribute("pass", true);
              req.getRequestDispatcher("/JSP/registerUser.jsp").forward(req,resp);
+        }
+
+        // Reassign Questions to Quiz
+        else if (req.getParameter("assignQuestion") != null){
+            int questionId = Integer.parseInt(req.getParameter("assignQuestion"));
+
+        }
+
+        // Delete Question from DB
+        else if (req.getParameter("questionDelete") != null){
+            int questionId = Integer.parseInt(req.getParameter("questionDelete"));
+            int deleted = dao.deleteQuestionById(questionId);
+            if(deleted > 0){
+                req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
+            }
+            else {
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
+        }
+
+        // Reassign Quiz to Teacher
+        else if (req.getParameter("assignQuiz") != null){
+            int quizId = Integer.parseInt(req.getParameter("assignQuiz"));
+
+        }
+
+        // Delete Quiz from DB
+        else if (req.getParameter("quizDelete") != null){
+            int quizId = Integer.parseInt(req.getParameter("quizDelete"));
+            int deleted = dao.deleteQuizById(quizId);
+            if(deleted > 0){
+                req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
+            }
+            else {
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
         }
     }
 

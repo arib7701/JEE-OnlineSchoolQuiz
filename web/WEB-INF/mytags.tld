@@ -55,7 +55,13 @@
 
     <tag>
         <name>getPoolQuestion</name>
-        <tag-class>com.school.tags.poolHandler</tag-class>
+        <tag-class>com.school.tags.poolQuestionHandler</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>getPoolQuiz</name>
+        <tag-class>com.school.tags.poolQuizHandler</tag-class>
         <body-content>empty</body-content>
     </tag>
 

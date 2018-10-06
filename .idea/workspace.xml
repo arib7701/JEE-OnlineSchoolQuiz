@@ -7,13 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06a3179d-8839-4a13-b30c-07f1e1ac345c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/school/servlets/LogOut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/servlets/LogOut.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/school/tags/quizHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/tags/quizHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/school/tags/teacherHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/tags/teacherHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/JSP/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/mytags.tld" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/mytags.tld" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,38 +25,38 @@
     <session id="2984596">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.113" value="1" />
           <entry key="project.open.time.126" value="2" />
           <entry key="project.open.time.183" value="1" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.68" value="1" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.86" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
+          <entry key="CLASS" value="4" />
           <entry key="CSS" value="7" />
           <entry key="HTML" value="2" />
-          <entry key="JAVA" value="164" />
-          <entry key="JSP" value="96" />
+          <entry key="JAVA" value="170" />
+          <entry key="JSP" value="97" />
           <entry key="Scratch" value="1" />
           <entry key="XHTML" value="2" />
-          <entry key="XML" value="15" />
+          <entry key="XML" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="106" />
-          <entry key="dummy" value="19" />
-          <entry key="java" value="19838" />
-          <entry key="jsp" value="9801" />
-          <entry key="tld" value="336" />
+          <entry key="dummy" value="27" />
+          <entry key="java" value="20721" />
+          <entry key="jsp" value="9881" />
+          <entry key="tld" value="344" />
           <entry key="xhtml" value="80" />
           <entry key="xml" value="112" />
         </counts>
@@ -67,23 +65,23 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="106" />
-          <entry key="JAVA" value="19828" />
-          <entry key="JSP" value="9801" />
-          <entry key="PLAIN_TEXT" value="19" />
-          <entry key="SQL" value="25" />
+          <entry key="JAVA" value="20711" />
+          <entry key="JSP" value="9881" />
+          <entry key="PLAIN_TEXT" value="27" />
+          <entry key="SQL" value="27" />
           <entry key="XHTML" value="80" />
-          <entry key="XML" value="433" />
+          <entry key="XML" value="439" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
+          <entry key="class" value="4" />
           <entry key="css" value="7" />
           <entry key="html" value="2" />
-          <entry key="java" value="164" />
-          <entry key="jsp" value="96" />
+          <entry key="java" value="170" />
+          <entry key="jsp" value="97" />
           <entry key="snippet" value="1" />
-          <entry key="tld" value="10" />
+          <entry key="tld" value="11" />
           <entry key="xhtml" value="2" />
           <entry key="xml" value="5" />
         </counts>
@@ -94,12 +92,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="493" selection-start-line="493" selection-end-line="493" />
+            <state relative-caret-position="89">
+              <caret line="495" column="4" selection-start-line="495" selection-start-column="4" selection-end-line="495" selection-end-column="4" />
               <folding>
+                <element signature="method#getQuestionsQuiz#0;class#ApplicationDAO#0" />
                 <element signature="method#getAnswerOfQuestion#0;class#ApplicationDAO#0" />
                 <element signature="method#getQuizByTHeme#0;class#ApplicationDAO#0" />
                 <element signature="method#getThemes#0;class#ApplicationDAO#0" />
@@ -110,7 +109,7 @@
                 <element signature="method#getThemeByGradeId#0;class#ApplicationDAO#0" />
                 <element signature="method#getQuizByTeacher#0;class#ApplicationDAO#0" />
                 <element signature="method#getAverageGradeByInternId#0;class#ApplicationDAO#0" />
-                <element signature="method#getAverageGradeByInternId#1;class#ApplicationDAO#0" />
+                <element signature="method#getAverageGradeByQuizId#0;class#ApplicationDAO#0" />
                 <element signature="method#getCountByQuizId#0;class#ApplicationDAO#0" />
                 <element signature="method#logInUser#0;class#ApplicationDAO#0" />
                 <element signature="method#addNewUser#0;class#ApplicationDAO#0" />
@@ -118,9 +117,11 @@
                 <element signature="method#addNewQuiz#0;class#ApplicationDAO#0" />
                 <element signature="method#addNewQuestion#0;class#ApplicationDAO#0" />
                 <element signature="method#reassignedQuestionsToPool#0;class#ApplicationDAO#0" />
+                <element signature="method#reassignedQuiz#0;class#ApplicationDAO#0" />
                 <element signature="method#updateQuestionById#0;class#ApplicationDAO#0" />
                 <element signature="method#deleteQuizById#0;class#ApplicationDAO#0" />
                 <element signature="method#deleteUserById#0;class#ApplicationDAO#0" />
+                <element signature="method#deleteQuestionById#0;class#ApplicationDAO#0" />
                 <element signature="method#getMd5#0;class#ApplicationDAO#0" />
               </folding>
             </state>
@@ -130,7 +131,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
+            <state relative-caret-position="1350">
               <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="62" />
             </state>
           </provider>
@@ -139,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="28" selection-start-column="28" selection-end-column="28" />
+            <state relative-caret-position="265">
+              <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -148,29 +149,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="238" column="27" lean-forward="true" selection-start-line="238" selection-start-column="27" selection-end-line="238" selection-end-column="27" />
+            <state relative-caret-position="-509">
+              <caret line="293" column="8" selection-start-line="293" selection-start-column="8" selection-end-line="293" selection-end-column="8" />
               <folding>
                 <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/mytags.tld">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolQuestionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="156">
+              <caret line="17" column="59" selection-end-line="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/school/tags/teacherHandler.java">
+        <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolQuizHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="159">
+              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,7 +212,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/JSP/entry_result.html" />
         <option value="$PROJECT_DIR$/src/com/school/beans/Intern.java" />
         <option value="$PROJECT_DIR$/src/com/school/beans/User.java" />
         <option value="$PROJECT_DIR$/src/com/school/beans/Grade.java" />
@@ -240,23 +245,24 @@
         <option value="$PROJECT_DIR$/web/JSP/about.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/login.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/RegisterIntern.java" />
-        <option value="$PROJECT_DIR$/web/JSP/header.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/entry_result.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/newUser.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/RegisterUser.java" />
         <option value="$PROJECT_DIR$/web/JSP/registerUser.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/tags/internHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" />
         <option value="$PROJECT_DIR$/src/com/school/tags/quizHandler.java" />
         <option value="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/LogOut.java" />
-        <option value="$PROJECT_DIR$/src/com/school/tags/teacherHandler.java" />
         <option value="$PROJECT_DIR$/src/com/school/tags/poolQuestionHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" />
+        <option value="$PROJECT_DIR$/web/JSP/header.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/tags/poolHandler.java" />
-        <option value="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/com/school/tags/teacherHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/mytags.tld" />
+        <option value="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/com/school/tags/poolQuizHandler.java" />
+        <option value="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" />
       </list>
     </option>
   </component>
@@ -287,8 +293,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,6 +312,13 @@
               <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="school" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineSchoolApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="school" type="462c0819:PsiDirectoryNode" />
+              <item name="beans" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineSchoolApp" type="b2602c69:ProjectViewProjectNode" />
@@ -359,7 +372,7 @@
     <property name="SearchEverywhereHistoryKey" value="test&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538846019070" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538849452522" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -480,12 +493,13 @@
       <workItem from="1538551118713" duration="1077000" />
       <workItem from="1538553890543" duration="13413000" />
       <workItem from="1538636696499" duration="22284000" />
-      <workItem from="1538722544958" duration="35895000" />
+      <workItem from="1538722544958" duration="35946000" />
+      <workItem from="1538846094794" duration="3127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150515000" />
+    <option name="totallyTimeSpent" value="153693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -500,6 +514,44 @@
     <frame x="8" y="30" width="1260" height="708" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1502463" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
+      <window_info id="Learn" order="7" weight="0.32922825" />
+      <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info id="Persistence" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49917898" visible="true" weight="0.3538961" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293718" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3293718" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500821" side_tool="true" weight="0.4804754" />
+      <window_info anchor="bottom" id="Application Servers" order="11" weight="0.3293718" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3293718" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32792208" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="JSF" order="8" />
+      <window_info anchor="right" id="CDI" order="9" />
+      <window_info anchor="right" id="Maven Projects" order="10" />
+      <window_info anchor="right" id="Bean Validation" order="11" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1502463" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Web" order="2" side_tool="true" />
@@ -536,44 +588,6 @@
       <window_info anchor="right" id="CDI" order="9" />
       <window_info anchor="right" id="Maven Projects" order="10" />
       <window_info anchor="right" id="Bean Validation" order="11" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14778325" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="2" side_tool="true" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="UI Designer" order="6" />
-      <window_info id="Learn" order="7" weight="0.32922825" />
-      <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info id="Persistence" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49917898" visible="true" weight="0.3327674" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3293718" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3293718" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500821" side_tool="true" weight="0.4804754" />
-      <window_info anchor="bottom" id="Application Servers" order="11" weight="0.3293718" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3293718" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3293718" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="JSF" order="8" />
-      <window_info anchor="right" id="CDI" order="9" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="right" id="Bean Validation" order="11" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,9 +597,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$USER_HOME$/Downloads/payara5/glassfish/modules/web-core.jar!/org/apache/catalina/core/StandardWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -659,13 +670,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/beans/Question.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="93" column="25" selection-start-line="93" selection-start-column="15" selection-end-line="93" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -769,13 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/JSP/newQuiz.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -807,13 +804,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -871,23 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/tags/quizHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/tags/gradeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -895,17 +868,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolQuestionHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/questionHandler.java" />
+    <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1350">
+          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$USER_HOME$/Downloads/payara5/glassfish/modules/javax.servlet.jsp-api.jar!/javax/servlet/jsp/tagext/SimpleTagSupport.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
+        <state relative-caret-position="180">
           <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/beans/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="45" column="26" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/quizHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="55" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mytags.tld">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="57" column="59" selection-start-line="57" selection-start-column="59" selection-end-line="57" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolQuestionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="156">
+          <caret line="17" column="59" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/teacherHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-509">
+          <caret line="293" column="8" selection-start-line="293" selection-start-column="8" selection-end-line="293" selection-end-column="8" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolQuizHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -914,9 +966,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="493" selection-start-line="493" selection-end-line="493" />
+        <state relative-caret-position="89">
+          <caret line="495" column="4" selection-start-line="495" selection-start-column="4" selection-end-line="495" selection-end-column="4" />
           <folding>
+            <element signature="method#getQuestionsQuiz#0;class#ApplicationDAO#0" />
             <element signature="method#getAnswerOfQuestion#0;class#ApplicationDAO#0" />
             <element signature="method#getQuizByTHeme#0;class#ApplicationDAO#0" />
             <element signature="method#getThemes#0;class#ApplicationDAO#0" />
@@ -927,7 +980,7 @@
             <element signature="method#getThemeByGradeId#0;class#ApplicationDAO#0" />
             <element signature="method#getQuizByTeacher#0;class#ApplicationDAO#0" />
             <element signature="method#getAverageGradeByInternId#0;class#ApplicationDAO#0" />
-            <element signature="method#getAverageGradeByInternId#1;class#ApplicationDAO#0" />
+            <element signature="method#getAverageGradeByQuizId#0;class#ApplicationDAO#0" />
             <element signature="method#getCountByQuizId#0;class#ApplicationDAO#0" />
             <element signature="method#logInUser#0;class#ApplicationDAO#0" />
             <element signature="method#addNewUser#0;class#ApplicationDAO#0" />
@@ -935,52 +988,13 @@
             <element signature="method#addNewQuiz#0;class#ApplicationDAO#0" />
             <element signature="method#addNewQuestion#0;class#ApplicationDAO#0" />
             <element signature="method#reassignedQuestionsToPool#0;class#ApplicationDAO#0" />
+            <element signature="method#reassignedQuiz#0;class#ApplicationDAO#0" />
             <element signature="method#updateQuestionById#0;class#ApplicationDAO#0" />
             <element signature="method#deleteQuizById#0;class#ApplicationDAO#0" />
             <element signature="method#deleteUserById#0;class#ApplicationDAO#0" />
+            <element signature="method#deleteQuestionById#0;class#ApplicationDAO#0" />
             <element signature="method#getMd5#0;class#ApplicationDAO#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/tags/teacherHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="238" column="27" lean-forward="true" selection-start-line="238" selection-start-column="27" selection-end-line="238" selection-end-column="27" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/tags/poolHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/tags/questionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mytags.tld">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>

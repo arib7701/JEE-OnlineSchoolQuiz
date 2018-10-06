@@ -241,7 +241,7 @@ public class ApplicationDAO {
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM teacher;";
+        String query = "SELECT * FROM teacher WHERE teacher_id <> 1;";
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -493,8 +493,7 @@ public class ApplicationDAO {
     }
 
 
-
-
+    
 
 
     // VERIFY FUNCTIONS
@@ -707,7 +706,7 @@ public class ApplicationDAO {
 
 
     // UPDATE FUNCTIONS
-    public int reassignedQuestionsToPool(int questionId){
+    public int reassignQuestions(int questionId, int quizId){
 
         System.out.println("into reassignedQuestionsToPool");
 
@@ -717,11 +716,39 @@ public class ApplicationDAO {
         PreparedStatement preparedStatement;
         int rowAffected = 0;
 
-        query = "UPDATE questions SET `question_quiz_id` = 2 WHERE question_id = (?);";
+        query = "UPDATE questions SET `question_quiz_id` = ? WHERE question_id = (?);";
 
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, questionId);
+            preparedStatement.setInt(1, quizId);
+            preparedStatement.setInt(2, questionId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+    }
+
+    public int reassignQuiz(int quizId){
+
+        System.out.println("into reassignQuiz");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "UPDATE quiz SET `teacher_id` = 1 WHERE quiz_id = (?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
             rowAffected = preparedStatement.executeUpdate();
 
             connection.close();
@@ -783,7 +810,7 @@ public class ApplicationDAO {
         List<Question> questions = getQuestionsQuiz(quizId);
         int reassign = 0;
         for(Question q : questions){
-            reassign = reassignedQuestionsToPool(q.getId());
+            reassign = reassignQuestions(q.getId(), 2);
             if(reassign < 1){
                 System.out.println("Error reassigning question to pool - question: " + q.getId());
             }
@@ -827,6 +854,14 @@ public class ApplicationDAO {
         if(status.equals("IN")){
             query = "DELETE FROM intern  WHERE (intern_id = ?);";
         } else if (status.equals("TE")){
+
+            // Reassign Quiz to Pool
+            List<Quiz> quizzes = getQuizByTeacher(userId);
+            int reassigned = 0;
+            for(Quiz q : quizzes){
+                reassigned = reassignQuiz(q.getId());
+            }
+
             query = "DELETE FROM teacher  WHERE (teacher_id = ?);";
         } else if (status.equals("AD")){
             query = "DELETE FROM admin  WHERE (admin_id = ?);";
@@ -846,6 +881,33 @@ public class ApplicationDAO {
 
         return rowAffected;
 
+    }
+
+    public int deleteQuestionById(int questionId){
+
+        System.out.println("into deleteQuestionById");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = new String();
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "DELETE FROM questions  WHERE (question_id = ?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, questionId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
     }
 
 
