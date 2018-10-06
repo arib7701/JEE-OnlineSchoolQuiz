@@ -8,12 +8,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/registerIntern")
-public class RegisterIntern extends HttpServlet {
+@WebServlet("/registerUser")
+public class RegisterUser extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/JSP/registerUser.jsp").forward(req,resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,15 +26,23 @@ public class RegisterIntern extends HttpServlet {
         String email = req.getParameter("email");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        String status = req.getParameter("status");
 
-        User intern = new User(firstname, lastname, email, username, password);
+        User user = new User(firstname, lastname, email, username, password);
         ApplicationDAO dao = new ApplicationDAO();
-        int row = dao.addNewUser(intern, "IN");
+        int added = 0;
 
-        if(row > 0){
-            HttpSession session = req.getSession();
-            session.setAttribute("intern", intern);
-            //req.getRequestDispatcher("/JSP/login.jsp").forward(req,resp);
+        if(status.equals("IN")){
+            added = dao.addNewUser(user, "IN");
+        }
+        else if(status.equals("TE")){
+            added = dao.addNewUser(user, "TE");
+        }
+        else if(status.equals("AD")){
+            added = dao.addNewUser(user, "AD");
+        }
+
+        if(added > 0){
             resp.sendRedirect(req.getContextPath() + "/login");
         } else {
             String error = "Make sure all your fields are filled or change your username";

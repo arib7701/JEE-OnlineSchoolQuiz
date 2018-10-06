@@ -20,6 +20,20 @@
         <hr class="my-4">
     </div>
 
+    <div class="row justify-content-md-center">
+        <div class="col-lg-1">
+            <form action="profileAdmin" method="post">
+                <input type="text" name="newUser" hidden>
+                <button type="submit" name="newUser" class="btn btn-success">Add New User</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <hr style="background-color: white">
+    <br>
+    <br>
+
     <mtag:getIntern/>
     <c:if test="${interns != null}">
     <div class="row">
@@ -176,7 +190,7 @@
                                 <tr>
                                     <th scope="col>">Id</th>
                                     <th scope="col">Theme</th>
-                                    <th scope="col">Nber Questions</th>
+                                    <th scope="col">Questions</th>
                                     <th scope="col">Average Grade</th>
                                 </tr>
                                 </thead>
@@ -185,7 +199,7 @@
                                     <tr>
                                         <td>${q.getId()}</td>
                                         <td>${q.getTheme()}</td>
-                                        <td>${q.getNber_questions()}</td>
+                                        <td><span class="badge badge-primary badge-pill">${q.getNber_questions()} questions</span></td>
                                         <td>
                                         </td>
                                     </tr>

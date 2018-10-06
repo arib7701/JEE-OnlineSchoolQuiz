@@ -357,7 +357,7 @@ public class ApplicationDAO {
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ? ;";
+        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ?  and quiz_theme <> 'unassigned' and quiz_theme <> 'entry';";
         PreparedStatement preparedStatement;
         ResultSet result;
 

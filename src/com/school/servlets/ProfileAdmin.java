@@ -65,6 +65,11 @@ public class ProfileAdmin extends HttpServlet {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
         }
+         else if(req.getParameter("newUser") != null){
+             req.setAttribute("status", "notIntern");
+             req.setAttribute("pass", true);
+             req.getRequestDispatcher("/JSP/registerUser.jsp").forward(req,resp);
+        }
     }
 
     @Override
