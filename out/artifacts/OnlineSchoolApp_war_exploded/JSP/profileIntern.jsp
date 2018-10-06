@@ -1,4 +1,3 @@
-<%@ page import="com.school.beans.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://onlineschool.com/tags" prefix="mtag" %>
 
@@ -61,6 +60,12 @@
             </div>
         </c:if>
     </div>
+
+    <br>
+    <br>
+    <hr style="background-color: white">
+    <br>
+
     <mtag:getGrade userId="${sessionScope.intern.getId()}"/>
     <c:if test="${grades != null}">
         <br>

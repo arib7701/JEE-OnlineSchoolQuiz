@@ -16,7 +16,15 @@
 
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="profileIntern">Profil</a>
+                    <c:if test="${sessionScope.intern != null}">
+                        <a class="nav-link" href="profileIntern">Profil</a>
+                    </c:if>
+                    <c:if test="${sessionScope.teacher != null}">
+                        <a class="nav-link" href="profileTeacher">Profil</a>
+                    </c:if>
+                    <c:if test="${sessionScope.admin != null}">
+                        <a class="nav-link" href="profileAdmin">Profil</a>
+                    </c:if>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login">Log In</a>
