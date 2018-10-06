@@ -31,7 +31,8 @@ public class RegisterIntern extends HttpServlet {
         if(row > 0){
             HttpSession session = req.getSession();
             session.setAttribute("intern", intern);
-            req.getRequestDispatcher("/JSP/login.jsp").forward(req,resp);
+            //req.getRequestDispatcher("/JSP/login.jsp").forward(req,resp);
+            resp.sendRedirect(req.getContextPath() + "/login");
         } else {
             String error = "Make sure all your fields are filled or change your username";
             req.setAttribute("error", error);

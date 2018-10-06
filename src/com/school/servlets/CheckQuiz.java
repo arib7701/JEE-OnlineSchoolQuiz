@@ -46,7 +46,8 @@ public class CheckQuiz extends HttpServlet {
             if(result == 100){
                 pass = true;
                 req.setAttribute("pass", pass);
-                req.getRequestDispatcher("/JSP/entry_result.jsp").forward(req,resp);
+                //req.getRequestDispatcher("/JSP/entry_result.jsp").forward(req,resp);
+                resp.sendRedirect(req.getContextPath() + "/entry_result");
             }
             else {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
@@ -66,7 +67,8 @@ public class CheckQuiz extends HttpServlet {
             Grade grade = new Grade(intern.getId(), quizId, result, date);
             int rowAffected = dao.addNewGrade(grade);
             if(rowAffected > 0){
-                req.getRequestDispatcher("/JSP/profileIntern.jsp").forward(req,resp);
+                //req.getRequestDispatcher("/JSP/profileIntern.jsp").forward(req,resp);
+                resp.sendRedirect(req.getContextPath() + "/profileIntern");
             }
             else {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);

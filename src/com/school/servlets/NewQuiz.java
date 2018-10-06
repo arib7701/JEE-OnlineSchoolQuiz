@@ -3,6 +3,7 @@ package com.school.servlets;
 import com.school.beans.Question;
 import com.school.beans.Quiz;
 import com.school.beans.Teacher;
+import com.school.beans.User;
 import com.school.dao.ApplicationDAO;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,7 @@ public class NewQuiz extends HttpServlet {
         Quiz quiz;
         int quizId;
         int qId = 0;
-        Teacher teacher;
+        User teacher;
         HttpSession session = req.getSession();
         List<Question> questions = new ArrayList();
 
@@ -53,7 +54,7 @@ public class NewQuiz extends HttpServlet {
 
             chosenTheme = req.getParameter("chosenTheme");
             nber_Q = Integer.parseInt(req.getParameter("nber_Q"));
-            teacher = (Teacher) session.getAttribute("teacher");
+            teacher = (User) session.getAttribute("teacher");
             quiz = new Quiz(chosenTheme, nber_Q,teacher.getId());
             quizId = dao.addNewQuiz(quiz);
 

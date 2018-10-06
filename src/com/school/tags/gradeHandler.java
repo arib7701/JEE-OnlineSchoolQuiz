@@ -7,6 +7,7 @@ import com.school.dao.ApplicationDAO;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import java.util.ArrayList;
 import java.util.List;
 
 public class gradeHandler extends SimpleTagSupport {
@@ -28,8 +29,15 @@ public class gradeHandler extends SimpleTagSupport {
         List<Grade> grades = null;
         grades = dao.getGradeByIntern(userId);
 
-        if(grades != null){
+        List<String> themes = new ArrayList<>();
+        for(Grade g : grades){
+            String theme = dao.getThemeByGradeId(g.getGrade_id());
+            themes.add(theme);
+        }
+
+        if(grades.size() > 0){
             getJspContext().setAttribute("grades", grades);
+            getJspContext().setAttribute("themes", themes);
         } else {
             getJspContext().setAttribute("nograde", "You don't have grade yet. Time to take a quiz!");
         }

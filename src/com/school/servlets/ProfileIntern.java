@@ -19,7 +19,6 @@ public class ProfileIntern extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("into servlet profil dopost");
 
         if( req.getParameter("theme") != null){
             String theme = req.getParameter("theme");
@@ -43,7 +42,6 @@ public class ProfileIntern extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("into servlet profil doget");
         req.getRequestDispatcher("/JSP/profileIntern.jsp").forward(req,resp);
     }
 }

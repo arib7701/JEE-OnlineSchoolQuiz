@@ -68,20 +68,35 @@
         <div class="row justify-content-md-center">
             <div class="col-lg-8">
                 <div class="bs-component">
+                    <h2>Your Grades</h2>
                     <table class="table table-hover">
                         <thead>
                         <tr>
                             <th scope="col">Quiz Number</th>
-                            <th scope="col">Grade</th>
+                            <th scope="col">Theme</th>
                             <th scope="col">Date</th>
+                            <th scope="col">Grade</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <c:forEach items="${grades}" var="g" varStatus="loop">
                             <tr>
                                 <td>${g.getQuiz_id()}</td>
-                                <td>${g.getGrade_value()}</td>
+                                <td>${themes[loop.index]}</td>
                                 <td>${g.getGrade_date()}</td>
+                                <td>${g.getGrade_value()}%</td>
+                                <td>
+                                    <c:if test="${g.getGrade_value() <= 50}">
+                                        <span class="badge badge-pill badge-danger">Danger</span>
+                                    </c:if>
+                                    <c:if test="${g.getGrade_value() <= 70 and g.getGrade_value() > 50 }">
+                                        <span class="badge badge-pill badge-warning">Warning</span>
+                                    </c:if>
+                                    <c:if test="${g.getGrade_value() <= 100 and g.getGrade_value() > 70}">
+                                        <span class="badge badge-pill badge-success">Success</span>
+                                    </c:if>
+                                </td>
                             </tr>
                         </c:forEach>
                         </tbody>

@@ -132,7 +132,7 @@ public class ApplicationDAO {
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT DISTINCT quiz_theme FROM quiz";
+        String query = "SELECT DISTINCT quiz_theme FROM quiz WHERE quiz_theme <> 'unassigned' AND quiz_theme<> 'entry';";
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -277,6 +277,41 @@ public class ApplicationDAO {
         return quizzes;
     }
 
+    public String getThemeByGradeId(int gradeId){
+
+        System.out.println("into getThemeByGradeId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT quiz.quiz_theme FROM quiz" +
+                " JOIN grade ON grade.grade_quiz_id = quiz.quiz_id" +
+                " WHERE grade.grade_id = ?;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        String theme = new String();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, gradeId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                theme = result.getString("quiz_theme");
+                System.out.println(theme);
+            }
+
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return theme;
+    }
+
 
 
 
@@ -415,7 +450,7 @@ public class ApplicationDAO {
         int rowAffected = 0;
         int quizId = 0;
 
-        query = "INSERT INTO quiz (`quiz_theme`, `quiz_nber_questions`) VALUES (?,?,?);";
+        query = "INSERT INTO quiz (`quiz_theme`, `quiz_nber_questions`, `quiz_teacher_id`) VALUES (?,?,?);";
 
         try {
             preparedStatement = connection.prepareStatement(query);
@@ -485,6 +520,114 @@ public class ApplicationDAO {
         }
 
         return qId;
+    }
+
+
+
+    // UPDATE FUNCTIONS
+    public int reassignedQuestionsToPool(int questionId){
+
+        System.out.println("into reassignedQuestionsToPool");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "UPDATE questions SET `question_quiz_id` = 2 WHERE question_id = (?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, questionId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+    }
+
+    public int updateQuestionById(Question question){
+
+        System.out.println("into updateQuestionById");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "UPDATE questions " +
+                "SET `question_problem` = ?" +
+                ", `question_pos1` = ?" +
+                ", `question_pos2` = ?" +
+                ", `question_pos3` = ?" +
+                ", `question_pos4` = ?" +
+                ", `question_answer` = ?" +
+                " WHERE question_id = (?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, question.getProblem());
+            preparedStatement.setString(2, question.getPossibility_1());
+            preparedStatement.setString(3, question.getPossibility_2());
+            preparedStatement.setString(4, question.getPossibility_3());
+            preparedStatement.setString(5, question.getPossibility_4());
+            preparedStatement.setString(6, question.getCorrect_answer());
+            preparedStatement.setInt(7, question.getId());
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+    }
+
+
+    // DELETE FUNCTIONS
+    public int deleteQuizById(int quizId){
+
+        List<Question> questions = getQuestionsQuiz(quizId);
+        int reassign = 0;
+        for(Question q : questions){
+            reassign = reassignedQuestionsToPool(q.getId());
+            if(reassign < 1){
+                System.out.println("Error reassigning question to pool - question: " + q.getId());
+            }
+        }
+
+        System.out.println("into deleteQuizById");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "DELETE FROM quiz  WHERE (quiz_id = ?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
     }
 
 

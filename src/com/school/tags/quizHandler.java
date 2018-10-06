@@ -30,7 +30,7 @@ public class quizHandler extends SimpleTagSupport {
     public void doTag() throws JspException {
 
         List<Quiz> quizzes = null;
-        System.out.println("into tagHandler, userId " + userId + " - theme " + theme);
+        //System.out.println("into tagHandler, userId " + userId + " - theme " + theme);
 
         quizzes = dao.getQuizByTeacherByTheme(userId, theme);
 

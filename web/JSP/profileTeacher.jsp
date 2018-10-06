@@ -16,7 +16,7 @@
 <div class="container" id="main">
    <div class="jumbotron">
         <h1 class="display-3">Welcome, <c:out value="${sessionScope.teacher.getFirstname()}"></c:out>!</h1>
-        <p class="lead">Monitor all our interns and their respective grades!</p>
+        <p class="lead">Monitor all our interns and their respective grades! Check always your quiz and create new ones.</p>
         <hr class="my-4">
     </div>
 
@@ -33,63 +33,57 @@
 
     <mtag:getTheme />
     <c:if test="${themes != null}">
-    <h3>Quiz</h3>
-    <ul class="nav nav-tabs">
-        <c:forEach items="${themes}" var="theme" varStatus="loop">
-        <li class="nav-item">
-            <a class="nav-link" role="tab" data-toggle="tab" href="#${theme}">${theme}</a>
-        </li>
-        </c:forEach>
-    </ul>
-    <div id="myTabContent" class="tab-content">
-        <c:forEach items="${themes}" var="themeTab" varStatus="loop">
-            <mtag:getQuiz userId="${sessionScope.teacher.getId()}" theme="${themeTab}" />
-            <c:if test="${quizzes != null}">
-            <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
-                <table class="table table-hover table-sm">
-                    <thead>
-                    <tr>
-                        <th scope="col>">Id</th>
-                        <th scope="col">Questions</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${quizzes}" var="q" varStatus="loop">
-                        <tr>
-                            <td>${q.getId()}</td>
-                            <td>${q.getTheme()}</td>
-                            <td>
-                                <form action="profileTeacher" method="post">
-                                    <input hidden type="text" name="editQ" value="${q.getId()}">
-                                    <button type="submit" name="editQ" class="btn btn-info btn-sm">Edit</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="profileTeacher" method="post">
-                                    <input hidden type="text" name="deleteQ" value="${q.getId()}">
-                                    <button type="submit" name="deleteQ" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-            </c:if>
-            <c:if test="${noquiz != null}">
-                <div class="col-lg-12">
-                    <div class="alert alert-dismissible alert-warning">
-                        <strong>Heads up! </strong>${noquiz}
-                    </div>
+    <div class="row">
+        <h2>Your Quiz</h2>
+        <ul class="nav nav-tabs">
+            <c:forEach items="${themes}" var="theme" varStatus="loop">
+            <li class="nav-item">
+                <a class="nav-link" role="tab" data-toggle="tab" href="#${theme}">${theme}</a>
+            </li>
+            </c:forEach>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <c:forEach items="${themes}" var="themeTab" varStatus="loop">
+                <mtag:getQuiz userId="${sessionScope.teacher.getId()}" theme="${themeTab}" />
+                <c:if test="${quizzes != null}">
+                <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
+                    <table class="table table-hover table-sm">
+                        <tbody>
+                        <c:forEach items="${quizzes}" var="q" varStatus="loop">
+                            <tr>
+                                <td>Id ${q.getId()}</td>
+                                <td><span class="badge badge-primary badge-pill">${q.getNber_questions()} questions</span></td>
+                                <td>
+                                    <form action="profileTeacher" method="post">
+                                        <input hidden type="text" name="quizIdEdit" value="${q.getId()}">
+                                        <button type="submit" name="quizIdEdit" class="btn btn-info btn-sm">Edit</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="profileTeacher" method="post">
+                                        <input hidden type="text" name="quizIdDelete" value="${q.getId()}">
+                                        <button type="submit" name="quizIdDelete" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
-            </c:if>
-        </c:forEach>
+                </c:if>
+                <c:if test="${noquiz != null}">
+                    <div class="col-lg-12">
+                        <div class="alert alert-dismissible alert-warning">
+                            <strong>Heads up! </strong>${noquiz}
+                        </div>
+                    </div>
+                </c:if>
+            </c:forEach>
+        </div>
     </div>
-
     </c:if>
 
+    <br>
     <br>
     <br>
     <br>
@@ -97,10 +91,10 @@
     <mtag:getIntern/>
     <c:if test="${interns != null}">
     <div class="row">
+        <h2>School Interns</h2>
         <div class="col-lg-6">
             <div class="bs-component">
-                <h4>School Interns</h4>
-                <table class="table table-hover">
+                <table class="table table-hover table-sm">
                     <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -119,8 +113,8 @@
                             <td>${i.getEmail()}</td>
                             <td>
                                 <form action="profileTeacher" method="post">
-                                    <input hidden type="text" name="id" value="${i.getId()}">
-                                    <button type="submit" name="id" class="btn btn-info">See</button>
+                                    <input hidden type="text" name="idIntern" value="${i.getId()}">
+                                    <button type="submit" name="idIntern" class="btn btn-info btn-sm">See</button>
                                 </form>
                             </td>
                         </tr>
@@ -137,7 +131,7 @@
                 <div class="card border-info md-12" style="max-width: 30rem;">
                     <div class="card-header">Grades</div>
                     <div class="card-body">
-                        <table class="table table-hover">
+                        <table class="table table-hover table-sm">
                             <thead>
                             <tr>
                                 <th scope="col>">Quiz</th>

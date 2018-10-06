@@ -27,7 +27,8 @@
                     <fieldset>
                         <c:forEach items="${requestScope.questions}" var="q" varStatus="loop">
                             <h3 class="align-content-lg-center">Question ${loop.count}</h3>
-                            <input type="text" hidden name="q_${loop.count}">
+                            <input type="text" hidden name="id_${loop.count}" value="${q.getId()}">
+                            <input type="text" hidden name="quizId_${loop.count}" value="${q.getQuiz_id()}">
                             <fieldset class="form-group">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="problem_${q.getId()}" id="problem" value="${q.getProblem()}">
@@ -43,7 +44,7 @@
                                 </div>
                             </fieldset>
                         </c:forEach>
-                        <input type="text" hidden name="nberQ" value=${requestScope.questions.size()}>
+                        <input type="text" hidden name="nber_Q" value="${requestScope.questions.size()}">
                         <button type="submit" name="edit" class="btn btn-primary">Edit</button>
                         <button type="submit" name="return" class="btn btn-primary">Return</button>
                     </fieldset>
