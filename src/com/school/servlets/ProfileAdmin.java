@@ -113,10 +113,25 @@ public class ProfileAdmin extends HttpServlet {
             }
         }
 
-        // Reassign Quiz to Teacher
+        // Reassign Quiz to Teacher - show Teacher to Pick
         else if (req.getParameter("assignQuiz") != null){
             int quizId = Integer.parseInt(req.getParameter("assignQuiz"));
+            req.setAttribute("assignQuizToTeacher", quizId);
+            req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
 
+        }
+
+        // Reassign to Picked Teacher
+        else if(req.getParameter("idTeacherQuizReassign") != null){
+            int quizId = Integer.parseInt(req.getParameter("quizIdReassign"));
+            int teacherId = Integer.parseInt(req.getParameter("idTeacherQuizReassign"));
+            int reassigned = dao.reassignQuiz(quizId, teacherId);
+            if(reassigned > 0){
+                req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
+            }
+            else {
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
         }
 
         // Delete Quiz from DB

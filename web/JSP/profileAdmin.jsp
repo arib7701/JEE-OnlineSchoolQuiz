@@ -153,7 +153,9 @@
                             <th scope="col">Firstname</th>
                             <th scope="col">Lastname</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Nber</th>
                             <th scope="col">Quiz</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -163,6 +165,7 @@
                                 <td>${t.getFirstname()}</td>
                                 <td>${t.getLastname()}</td>
                                 <td>${t.getEmail()}</td>
+                                <td>${countsQuiz[loop.index]}</td>
                                 <td>
                                     <form action="profileAdmin" method="post">
                                         <input hidden type="text" name="idTeacherQuiz" value="${t.getId()}">
@@ -247,6 +250,8 @@
                         <tr>
                             <th scope="col">Id</th>
                             <th scope="col">Problem</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -303,7 +308,9 @@
                         <thead>
                         <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Problem</th>
+                            <th scope="col">Theme</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -327,6 +334,47 @@
                         </c:forEach>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.assignQuizToTeacher != null}">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
+                    <h3>Teachers</h3>
+                    <div class="card border-info md-12" style="max-width: 30rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <mtag:getTeacher/>
+                            <table class="table table-hover table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Firstname</th>
+                                    <th scope="col">Lastname</th>
+                                    <th scope="col">Quiz</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${teachers}" var="t" varStatus="loop">
+                                    <tr>
+                                        <td>${t.getId()}</td>
+                                        <td>${t.getFirstname()}</td>
+                                        <td>${t.getLastname()}</td>
+                                        <td>${countsQuiz[loop.index]}</td>
+                                        <td>
+                                            <form action="profileAdmin" method="post">
+                                                <input hidden type="text" name="quizIdReassign" value="${requestScope.assignQuizToTeacher}">
+                                                <input hidden type="text" name="idTeacherQuizReassign" value="${t.getId()}">
+                                                <button type="submit" name="idTeacherQuizReassign" class="btn btn-info btn-sm">Pick</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </c:if>

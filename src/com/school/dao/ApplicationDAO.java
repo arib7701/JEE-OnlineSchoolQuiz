@@ -492,8 +492,41 @@ public class ApplicationDAO {
 
     }
 
+    public int getCountByTeacherId(int teacherId){
 
-    
+        System.out.println("into getCountByTeacherId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT count(quiz_teacher_id) as count FROM quiz " +
+                " WHERE quiz_teacher_id = ? " +
+                "GROUP BY quiz_teacher_id;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        int count = 0;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, teacherId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                count = result.getInt("count");
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return count;
+
+    }
+
+
+
 
 
     // VERIFY FUNCTIONS
@@ -705,6 +738,7 @@ public class ApplicationDAO {
 
 
 
+
     // UPDATE FUNCTIONS
     public int reassignQuestions(int questionId, int quizId){
 
@@ -734,7 +768,7 @@ public class ApplicationDAO {
         return rowAffected;
     }
 
-    public int reassignQuiz(int quizId){
+    public int reassignQuiz(int quizId, int teacherId){
 
         System.out.println("into reassignQuiz");
 
@@ -744,11 +778,12 @@ public class ApplicationDAO {
         PreparedStatement preparedStatement;
         int rowAffected = 0;
 
-        query = "UPDATE quiz SET `teacher_id` = 1 WHERE quiz_id = (?);";
+        query = "UPDATE quiz SET `quiz_teacher_id` = ? WHERE quiz_id = (?);";
 
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, quizId);
+            preparedStatement.setInt(1, teacherId);
+            preparedStatement.setInt(2, quizId);
             rowAffected = preparedStatement.executeUpdate();
 
             connection.close();
@@ -859,7 +894,7 @@ public class ApplicationDAO {
             List<Quiz> quizzes = getQuizByTeacher(userId);
             int reassigned = 0;
             for(Quiz q : quizzes){
-                reassigned = reassignQuiz(q.getId());
+                reassigned = reassignQuiz(q.getId(), 1);
             }
 
             query = "DELETE FROM teacher  WHERE (teacher_id = ?);";
