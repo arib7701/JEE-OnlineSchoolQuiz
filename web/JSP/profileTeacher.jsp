@@ -80,7 +80,7 @@
                                 </div>
                             </c:if>
                             <c:if test="${noquiz != null}">
-                                <div class="col-lg-12">
+                                <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
                                     <div class="alert alert-dismissible alert-warning">
                                         <strong>Heads up! </strong>${noquiz}
                                     </div>

@@ -143,7 +143,7 @@
     <mtag:getTeacher/>
     <div class="row">
         <c:if test="${teachers != null}">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="bs-component">
                     <h2>School Teachers</h2>
                     <table class="table table-hover table-sm">
@@ -186,7 +186,7 @@
             </div>
         </c:if>
         <c:if test="${requestScope.quizzes != null}">
-            <div class="col-lg-5 offset-md-1">
+            <div class="col-lg-6 offset-md-1">
                 <div class="bs-component">
                     <h3>Quizzes</h3>
                     <div class="card border-info md-12" style="max-width: 30rem;">
@@ -199,7 +199,9 @@
                                     <th scope="col">Theme</th>
                                     <th scope="col">Questions</th>
                                     <th scope="col">Average Grade</th>
-                                    <th scope="col">Count</th>
+                                    <th scope="col">Taken</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -210,6 +212,18 @@
                                         <td><span class="badge badge-primary badge-pill">${q.getNber_questions()} questions</span></td>
                                         <td>${averagesQuiz[loop.index]}%</td>
                                         <td>${counts[loop.index]}x</td>
+                                        <td>
+                                            <form action="profileAdmin" method="post">
+                                                <input hidden type="text" name="quizIdEdit" value="${q.getId()}">
+                                                <button type="submit" name="quizIdEdit" class="btn btn-info btn-sm">Edit</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="profileAdmin" method="post">
+                                                <input hidden type="text" name="quizIdDelete" value="${q.getId()}">
+                                                <button type="submit" name="quizIdDelete" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -244,7 +258,7 @@
         <c:if test="${questionsPool != null}">
             <div class="col-lg-6">
                 <div class="bs-component">
-                    <h2>Pool Questions</h2>
+                    <h2>Pool Unassigned Questions</h2>
                     <table class="table table-hover table-sm">
                         <thead>
                         <tr>
@@ -324,7 +338,7 @@
             <br>
             <div class="row justify-content-md-center">
                 <div class="col-lg-12">
-                    <h3>Pool Questions</h3>
+                    <h2>Pool Unassigned Questions</h2>
                     <br>
                     <div class="alert alert-dismissible alert-info">
                         <strong>Heads up! </strong>${poolEmpty}
@@ -345,7 +359,7 @@
         <c:if test="${quizzesPool != null}">
             <div class="col-lg-6">
                 <div class="bs-component">
-                    <h2>Pool Quiz</h2>
+                    <h2>Pool Unassigned Quiz</h2>
                     <table class="table table-hover table-sm">
                         <thead>
                         <tr>
@@ -421,11 +435,12 @@
             </div>
         </c:if>
         <c:if test="${poolQuizEmpty != null}">
-            <h3>Pool Quiz</h3>
             <br>
             <br>
             <div class="row justify-content-md-center">
                 <div class="col-lg-12">
+                    <h2>Pool Unassigned Quiz</h2>
+                    <br>
                     <div class="alert alert-dismissible alert-info">
                         <strong>Heads up! </strong>${poolQuizEmpty}
                     </div>

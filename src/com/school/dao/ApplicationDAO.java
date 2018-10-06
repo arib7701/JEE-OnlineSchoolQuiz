@@ -19,7 +19,7 @@ public class ApplicationDAO {
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
-        String query = "SELECT * FROM questions WHERE question_quiz_id = ? ORDER BY RAND() LIMIT 5;";
+        String query = "SELECT * FROM questions WHERE question_quiz_id = ? ORDER BY RAND();";
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -857,6 +857,7 @@ public class ApplicationDAO {
     // DELETE FUNCTIONS
     public int deleteQuizById(int quizId){
 
+        // First Reassign Questions to Unassigned Pool
         List<Question> questions = getQuestionsQuiz(quizId);
         int reassign = 0;
         for(Question q : questions){
@@ -874,7 +875,7 @@ public class ApplicationDAO {
         PreparedStatement preparedStatement;
         int rowAffected = 0;
 
-        query = "DELETE FROM quiz  WHERE (quiz_id = ?);";
+        query = "DELETE FROM quiz WHERE (quiz_id = ?);";
 
         try {
             preparedStatement = connection.prepareStatement(query);

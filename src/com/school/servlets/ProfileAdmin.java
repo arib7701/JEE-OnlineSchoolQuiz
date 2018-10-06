@@ -1,6 +1,7 @@
 package com.school.servlets;
 
 import com.school.beans.Grade;
+import com.school.beans.Question;
 import com.school.beans.Quiz;
 import com.school.dao.ApplicationDAO;
 
@@ -86,6 +87,24 @@ public class ProfileAdmin extends HttpServlet {
             else {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
+        }
+
+        // Edit Quiz
+        else if(req.getParameter("quizIdEdit") != null){
+
+            int quizId = Integer.parseInt(req.getParameter("quizIdEdit"));
+            List<Question> questions = dao.getQuestionsQuiz(quizId);
+            req.setAttribute("questions", questions);
+            req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
+        }
+
+        // Delete Quiz
+        else if(req.getParameter("quizIdDelete") != null){
+
+            int quizId = Integer.parseInt(req.getParameter("quizIdDelete"));
+            int delete = dao.deleteQuizById(quizId);
+            System.out.println(delete);
+            req.getRequestDispatcher("/JSP/profileTeacher.jsp").forward(req,resp);
         }
 
         // Add New User

@@ -31,9 +31,6 @@
                             <input type="text" hidden name="quizId_${loop.count}" value="${q.getQuiz_id()}">
                             <fieldset class="form-group">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="theme_${q.getId()}" id="theme" value="${q.getTheme()}">
-                                </div>
-                                <div class="form-group">
                                     <input type="text" class="form-control" name="problem_${q.getId()}" id="problem" value="${q.getProblem()}">
                                 </div>
                                 <div class="form-group">
