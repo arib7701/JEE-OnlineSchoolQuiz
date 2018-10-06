@@ -425,6 +425,74 @@ public class ApplicationDAO {
 
     }
 
+    public Double getAverageGradeByQuizId(int quizId){
+
+        System.out.println("into getAverageGradeByQuizId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT avg(grade_value) as avg from grade " +
+                "join quiz on grade.grade_quiz_id = quiz.quiz_id " +
+                "where quiz.quiz_id = ? " +
+                "group by quiz.quiz_id;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        Double average = 0.0;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                average = result.getDouble("avg");
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return average;
+
+    }
+
+    public int getCountByQuizId(int quizId){
+
+        System.out.println("into getCountByQuizId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT count(grade_quiz_id) as count FROM grade " +
+                " WHERE grade_quiz_id = ? " +
+                "GROUP BY grade_quiz_id;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        int count = 0;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                count = result.getInt("count");
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return count;
+
+    }
+
+
 
 
 
@@ -779,6 +847,7 @@ public class ApplicationDAO {
         return rowAffected;
 
     }
+
 
 
 

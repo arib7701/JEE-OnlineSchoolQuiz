@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/profileAdmin")
@@ -44,9 +45,23 @@ public class ProfileAdmin extends HttpServlet {
         }
         else if(req.getParameter("idTeacherQuiz") != null){
             int teacherId = Integer.parseInt(req.getParameter("idTeacherQuiz"));
+
             List<Quiz> quizzes = dao.getQuizByTeacher(teacherId);
 
             if (quizzes.size() > 0) {
+
+                List<Long> averages = new ArrayList<>();
+                List<Integer> counts = new ArrayList<>();
+
+                for(Quiz q : quizzes){
+                    double avg = dao.getAverageGradeByQuizId(q.getId());
+                    int count = dao.getCountByQuizId(q.getId());
+                    counts.add(count);
+                    averages.add(Math.round(avg));
+                }
+
+                req.setAttribute("counts", counts);
+                req.setAttribute("averagesQuiz", averages);
                 req.setAttribute("quizzes", quizzes);
             } else {
                 String noquiz = "This intern has not make any quiz yet.";

@@ -6,6 +6,7 @@ import com.school.dao.ApplicationDAO;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import java.util.ArrayList;
 import java.util.List;
 
 public class quizHandler extends SimpleTagSupport {
@@ -35,6 +36,19 @@ public class quizHandler extends SimpleTagSupport {
         quizzes = dao.getQuizByTeacherByTheme(userId, theme);
 
         if(quizzes != null){
+
+            List<Long> averages = new ArrayList<>();
+            List<Integer> counts = new ArrayList<>();
+
+            for(Quiz q : quizzes){
+                double avg = dao.getAverageGradeByQuizId(q.getId());
+                int count = dao.getCountByQuizId(q.getId());
+                counts.add(count);
+                averages.add(Math.round(avg));
+            }
+
+            getJspContext().setAttribute("counts", counts);
+            getJspContext().setAttribute("averagesQuiz", averages);
             getJspContext().setAttribute("quizzes", quizzes);
         } else {
             getJspContext().setAttribute("noquiz", "You don't have quizzes yet. Time to take create one!");

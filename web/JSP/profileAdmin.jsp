@@ -28,6 +28,7 @@
             </form>
         </div>
     </div>
+
     <br>
     <br>
     <hr style="background-color: white">
@@ -35,54 +36,54 @@
     <br>
 
     <mtag:getIntern/>
-    <c:if test="${interns != null}">
     <div class="row">
-        <div class="col-lg-6">
-            <div class="bs-component">
-                <h2>School Interns</h2>
-                <table class="table table-hover table-sm">
-                    <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Firstname</th>
-                        <th scope="col">Lastname</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Grades</th>
-                        <th scope="col">Average</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${interns}" var="i" varStatus="loop">
+        <c:if test="${interns != null}">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <h2>School Interns</h2>
+                    <table class="table table-hover table-sm">
+                        <thead>
                         <tr>
-                            <td>${i.getId()}</td>
-                            <td>${i.getFirstname()}</td>
-                            <td>${i.getLastname()}</td>
-                            <td>${i.getEmail()}</td>
-                            <td>
-                                <form action="profileAdmin" method="post">
-                                    <input hidden type="text" name="idInternGrade" value="${i.getId()}">
-                                    <button type="submit" name="idInternGrade" class="btn btn-info btn-sm">See</button>
-                                </form>
-                            </td>
-                            <td>${averages[loop.index]}</td>
-                            <td>
-                                <form action="profileAdmin" method="post">
-                                    <input hidden type="text" name="idInternDelete" value="${i.getId()}">
-                                    <button type="submit" name="idInternDelete" class="btn btn-danger btn-sm">Unregister</button>
-                                </form>
-                            </td>
-
+                            <th scope="col">Id</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Grades</th>
+                            <th scope="col">Average</th>
+                            <th></th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${interns}" var="i" varStatus="loop">
+                            <tr>
+                                <td>${i.getId()}</td>
+                                <td>${i.getFirstname()}</td>
+                                <td>${i.getLastname()}</td>
+                                <td>${i.getEmail()}</td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="idInternGrade" value="${i.getId()}">
+                                        <button type="submit" name="idInternGrade" class="btn btn-info btn-sm">See</button>
+                                    </form>
+                                </td>
+                                <td>${averages[loop.index]}</td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="idInternDelete" value="${i.getId()}">
+                                        <button type="submit" name="idInternDelete" class="btn btn-danger btn-sm">Unregister</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
         </c:if>
-        <div class="col-lg-5 offset-md-1">
-            <div class="bs-component">
-                <c:if test="${requestScope.grades != null}">
+        <c:if test="${requestScope.grades != null}">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
                     <h3>Grades</h3>
                     <div class="card border-info md-12" style="max-width: 30rem;">
                         <div class="card-header">Grades</div>
@@ -116,21 +117,21 @@
                             </table>
                         </div>
                     </div>
-                </c:if>
-                <c:if test="${requestScope.nograde != null}">
-                    <h3>Grades</h3>
-                    <br>
-                    <br>
-                    <div class="row justify-content-md-center">
-                        <div class="col-lg-12">
-                            <div class="alert alert-dismissible alert-danger">
-                                <strong>Heads up! </strong>${nograde}
-                            </div>
-                        </div>
-                    </div>
-                </c:if>
+                </div>
             </div>
-        </div>
+        </c:if>
+        <c:if test="${requestScope.nograde != null}">
+            <h3>Grades</h3>
+            <br>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissible alert-danger">
+                        <strong>Heads up! </strong>${nograde}
+                    </div>
+                </div>
+            </div>
+        </c:if>
     </div>
 
     <br>
@@ -140,50 +141,50 @@
     <br>
 
     <mtag:getTeacher/>
-    <c:if test="${teachers != null}">
     <div class="row">
-        <div class="col-lg-6">
-            <div class="bs-component">
-                <h2>School Teachers</h2>
-                <table class="table table-hover table-sm">
-                    <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Firstname</th>
-                        <th scope="col">Lastname</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Quiz</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${teachers}" var="t" varStatus="loop">
+        <c:if test="${teachers != null}">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <h2>School Teachers</h2>
+                    <table class="table table-hover table-sm">
+                        <thead>
                         <tr>
-                            <td>${t.getId()}</td>
-                            <td>${t.getFirstname()}</td>
-                            <td>${t.getLastname()}</td>
-                            <td>${t.getEmail()}</td>
-                            <td>
-                                <form action="profileAdmin" method="post">
-                                    <input hidden type="text" name="idTeacherQuiz" value="${t.getId()}">
-                                    <button type="submit" name="idTeacherQuiz" class="btn btn-info btn-sm">See</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="profileAdmin" method="post">
-                                    <input hidden type="text" name="idTeacherDelete" value="${t.getId()}">
-                                    <button type="submit" name="idTeacherDelete" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
+                            <th scope="col">Id</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Quiz</th>
                         </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${teachers}" var="t" varStatus="loop">
+                            <tr>
+                                <td>${t.getId()}</td>
+                                <td>${t.getFirstname()}</td>
+                                <td>${t.getLastname()}</td>
+                                <td>${t.getEmail()}</td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="idTeacherQuiz" value="${t.getId()}">
+                                        <button type="submit" name="idTeacherQuiz" class="btn btn-info btn-sm">See</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="idTeacherDelete" value="${t.getId()}">
+                                        <button type="submit" name="idTeacherDelete" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
         </c:if>
-        <div class="col-lg-5 offset-md-1">
-            <div class="bs-component">
-                <c:if test="${requestScope.quizzes != null}">
+        <c:if test="${requestScope.quizzes != null}">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
                     <h3>Quizzes</h3>
                     <div class="card border-info md-12" style="max-width: 30rem;">
                         <div class="card-header">Quizzes</div>
@@ -195,6 +196,7 @@
                                     <th scope="col">Theme</th>
                                     <th scope="col">Questions</th>
                                     <th scope="col">Average Grade</th>
+                                    <th scope="col">Count</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -203,31 +205,87 @@
                                         <td>${q.getId()}</td>
                                         <td>${q.getTheme()}</td>
                                         <td><span class="badge badge-primary badge-pill">${q.getNber_questions()} questions</span></td>
-                                        <td>
-                                        </td>
+                                        <td>${averagesQuiz[loop.index]}%</td>
+                                        <td>${counts[loop.index]}x</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                </c:if>
-                <c:if test="${requestScope.noquiz != null}">
-                    <h3>Quizzes</h3>
-                    <br>
-                    <br>
-                    <div class="row justify-content-md-center">
-                        <div class="col-lg-12">
-                            <div class="alert alert-dismissible alert-danger">
-                                <strong>Heads up! </strong>${noquiz}
-                            </div>
-                        </div>
-                    </div>
-                </c:if>
+                </div>
             </div>
-        </div>
+        </c:if>
+        <c:if test="${requestScope.noquiz != null}">
+            <h3>Quizzes</h3>
+            <br>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissible alert-danger">
+                        <strong>Heads up! </strong>${noquiz}
+                    </div>
+                </div>
+            </div>
+        </c:if>
     </div>
 
+    <br>
+    <br>
+    <hr style="background-color: white">
+    <br>
+    <br>
+
+    <mtag:getPoolQuestion/>
+    <div class="row">
+        <c:if test="${requestScope.questionsPool != null}">
+            <div class="col-lg-6">
+                <div class="bs-component">
+                    <h2>Pool Questions</h2>
+                    <table class="table table-hover table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Problem</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${questionsPool}" var="qp" varStatus="loop">
+                            <tr>
+                                <td>${qp.getId()}</td>
+                                <td>${gp.getProblem()}</td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="asignQuestion" value="${qp.getId()}">
+                                        <button type="submit" name="asignQuestion" class="btn btn-info btn-sm">Assign</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="profileAdmin" method="post">
+                                        <input hidden type="text" name="questionDelete" value="${qp.getId()}">
+                                        <button type="submit" name="questionDelete" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.poolEmpty != null}">
+            <h3>Pool Questions</h3>
+            <br>
+            <br>
+            <div class="row justify-content-md-center">
+                <div class="col-lg-12">
+                    <div class="alert alert-dismissible alert-info">
+                        <strong>Heads up! </strong>${poolEmpty}
+                    </div>
+                </div>
+            </div>
+        </c:if>
+    </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

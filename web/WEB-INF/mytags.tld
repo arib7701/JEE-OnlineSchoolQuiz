@@ -52,4 +52,11 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+
+    <tag>
+        <name>getPoolQuestion</name>
+        <tag-class>com.school.tags.poolHandler</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
 </taglib>

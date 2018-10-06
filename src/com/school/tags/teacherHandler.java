@@ -11,6 +11,7 @@ public class teacherHandler extends SimpleTagSupport {
 
     ApplicationDAO dao = new ApplicationDAO();
 
+    @Override
     public void doTag() throws JspException {
         List<User> users = null;
         users = dao.getAllTeachers();
