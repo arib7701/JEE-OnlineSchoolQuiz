@@ -37,9 +37,10 @@ public class EditQuiz extends HttpServlet {
                 String pos3 = req.getParameter("pos3_" + questionId);
                 String pos4 = req.getParameter("pos4_" + questionId);
                 String answer = req.getParameter("answer_" + questionId);
+                String theme = req.getParameter("theme_"+questionId);
                 int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
 
-                question = new Question(questionId, problem, pos1, pos2, pos3, pos4, answer, quizId);
+                question = new Question(questionId, problem, pos1, pos2, pos3, pos4, answer, quizId, theme);
 
                 int editted = dao.updateQuestionById(question);
                 if(editted < 1){

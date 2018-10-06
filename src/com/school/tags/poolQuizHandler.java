@@ -17,7 +17,7 @@ public class poolQuizHandler extends SimpleTagSupport {
         // Pool quiz are store in with teacher id 1
         List<Quiz> quizzes = dao.getQuizByTeacher(1);
 
-        if(quizzes != null){
+        if(quizzes.size() > 0){
             getJspContext().setAttribute("quizzesPool", quizzes);
         } else {
             getJspContext().setAttribute("poolQuizEmpty", "All quizzes are assigned to a teacher!");

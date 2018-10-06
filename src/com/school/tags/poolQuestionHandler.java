@@ -17,7 +17,7 @@ public class poolQuestionHandler extends SimpleTagSupport {
         // Pool questions are store in quiz id 2
         List<Question> questions = dao.getQuestionsQuiz(2);
 
-        if(questions != null){
+        if(questions.size() > 0){
             getJspContext().setAttribute("questionsPool", questions);
         } else {
             getJspContext().setAttribute("poolEmpty", "All questions are assigned to a quiz!");

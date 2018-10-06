@@ -95,10 +95,26 @@ public class ProfileAdmin extends HttpServlet {
              req.getRequestDispatcher("/JSP/registerUser.jsp").forward(req,resp);
         }
 
-        // Reassign Questions to Quiz
+        // Reassign Questions to Quiz - show correct Theme Quiz
         else if (req.getParameter("assignQuestion") != null){
             int questionId = Integer.parseInt(req.getParameter("assignQuestion"));
+            String questionTheme = req.getParameter("assignQuestionTheme");
+            req.setAttribute("assignQuestionToQuiz", questionId);
+            req.setAttribute("assignTheme", questionTheme);
+            req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
+        }
 
+        // Reassign to Picked Quiz
+        else if(req.getParameter("idQuizQuestionReassign") != null){
+            int questionId = Integer.parseInt(req.getParameter("questionIdReassign"));
+            int quizId = Integer.parseInt(req.getParameter("idQuizQuestionReassign"));
+            int reassigned = dao.reassignQuestions(questionId, quizId);
+            if(reassigned > 0){
+                req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
+            }
+            else {
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
         }
 
         // Delete Question from DB

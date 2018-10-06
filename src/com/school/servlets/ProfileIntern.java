@@ -24,7 +24,7 @@ public class ProfileIntern extends HttpServlet {
             String theme = req.getParameter("theme");
 
             // Get Quiz By Theme and All Themes
-            List<Quiz> quizzes = dao.getQuizByTHeme(theme);
+            List<Quiz> quizzes = dao.getQuizByTheme(theme);
 
             req.setAttribute("quizzes", quizzes);
             req.getRequestDispatcher("/JSP/profileIntern.jsp").forward(req,resp);

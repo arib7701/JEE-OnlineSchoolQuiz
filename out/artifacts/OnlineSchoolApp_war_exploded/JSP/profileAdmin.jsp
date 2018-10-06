@@ -249,8 +249,8 @@
                         <thead>
                         <tr>
                             <th scope="col">Id</th>
+                            <th scope="col">Theme</th>
                             <th scope="col">Problem</th>
-                            <th></th>
                             <th></th>
                         </tr>
                         </thead>
@@ -258,10 +258,12 @@
                         <c:forEach items="${questionsPool}" var="qp" varStatus="loop">
                             <tr>
                                 <td>${qp.getId()}</td>
+                                <td>${qp.getTheme()}</td>
                                 <td>${qp.getProblem()}</td>
                                 <td>
                                     <form action="profileAdmin" method="post">
                                         <input hidden type="text" name="assignQuestion" value="${qp.getId()}">
+                                        <input hidden type="text" name="assignQuestionTheme" value="${qp.getTheme()}">
                                         <button type="submit" name="assignQuestion" class="btn btn-info btn-sm">Assign</button>
                                     </form>
                                 </td>
@@ -275,6 +277,45 @@
                         </c:forEach>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </c:if>
+        <c:if test="${requestScope.assignQuestionToQuiz != null}">
+            <div class="col-lg-5 offset-md-1">
+                <div class="bs-component">
+                    <h3>Quizzes</h3>
+                    <div class="card border-info md-12" style="max-width: 30rem;">
+                        <div class="card-header"></div>
+                        <div class="card-body">
+                            <mtag:getQuizTheme theme="${requestScope.assignTheme}"/>
+                            <table class="table table-hover table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nber Questions</th>
+                                    <th scope="col">Theme</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${quizzesTheme}" var="q" varStatus="loop">
+                                    <tr>
+                                        <td>${q.getId()}</td>
+                                        <td>${q.getNber_questions()}</td>
+                                        <td>${q.getTheme()}</td>
+                                        <td>
+                                            <form action="profileAdmin" method="post">
+                                                <input hidden type="text" name="questionIdReassign" value="${requestScope.assignQuestionToQuiz}">
+                                                <input hidden type="text" name="idQuizQuestionReassign" value="${q.getId()}">
+                                                <button type="submit" name="idQuizQuestionReassign" class="btn btn-info btn-sm">Pick</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </c:if>

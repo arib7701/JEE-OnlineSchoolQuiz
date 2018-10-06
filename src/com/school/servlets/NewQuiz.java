@@ -66,7 +66,7 @@ public class NewQuiz extends HttpServlet {
                 String pos4 = req.getParameter("pos4_" + i);
                 String answer = req.getParameter("answer_" + i);
 
-                Question question = new Question(problem, pos1, pos2, pos3, pos4, answer, quizId);
+                Question question = new Question(problem, pos1, pos2, pos3, pos4, answer, quizId, chosenTheme);
                 qId = dao.addNewQuestion(question);
                 if(qId < 1){
                     System.out.println("Error inserting new Q");

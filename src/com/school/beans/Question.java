@@ -9,12 +9,13 @@ public class Question {
     private String possibility_3;
     private String possibility_4;
     private String correct_answer;
+    private String theme;
     private int quiz_id;
 
     public Question() {
     }
 
-    public Question(int id, String problem, String possibility_1, String possibility_2, String possibility_3, String possibility_4, String correct_answer, int quiz_id) {
+    public Question(int id, String problem, String possibility_1, String possibility_2, String possibility_3, String possibility_4, String correct_answer, int quiz_id, String theme) {
         this.id = id;
         this.problem = problem;
         this.possibility_1 = possibility_1;
@@ -23,9 +24,10 @@ public class Question {
         this.possibility_4 = possibility_4;
         this.correct_answer = correct_answer;
         this.quiz_id = quiz_id;
+        this.theme = theme;
     }
 
-    public Question(String problem, String possibility_1, String possibility_2, String possibility_3, String possibility_4, String correct_answer, int quiz_id) {
+    public Question(String problem, String possibility_1, String possibility_2, String possibility_3, String possibility_4, String correct_answer, int quiz_id, String theme) {
         this.problem = problem;
         this.possibility_1 = possibility_1;
         this.possibility_2 = possibility_2;
@@ -33,6 +35,7 @@ public class Question {
         this.possibility_4 = possibility_4;
         this.correct_answer = correct_answer;
         this.quiz_id = quiz_id;
+        this.theme = theme;
     }
 
     public int getId() {
@@ -98,4 +101,8 @@ public class Question {
     public void setQuiz_id(int quiz_id) {
         this.quiz_id = quiz_id;
     }
+
+    public String getTheme() { return theme; }
+
+    public void setTheme(String theme) { this.theme = theme; }
 }

@@ -35,7 +35,7 @@ public class quizHandler extends SimpleTagSupport {
 
         quizzes = dao.getQuizByTeacherByTheme(userId, theme);
 
-        if(quizzes != null){
+        if(quizzes.size() > 0){
 
             List<Long> averages = new ArrayList<>();
             List<Integer> counts = new ArrayList<>();

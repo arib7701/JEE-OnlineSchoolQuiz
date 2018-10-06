@@ -26,6 +26,17 @@
     </tag>
 
     <tag>
+        <name>getQuizTheme</name>
+        <tag-class>com.school.tags.quizThemeHandler</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>theme</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
         <name>getIntern</name>
         <tag-class>com.school.tags.internHandler</tag-class>
         <body-content>empty</body-content>

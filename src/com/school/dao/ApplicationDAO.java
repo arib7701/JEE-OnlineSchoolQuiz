@@ -40,6 +40,7 @@ public class ApplicationDAO {
                 question.setPossibility_3(result.getString("question_pos3"));
                 question.setPossibility_4(result.getString("question_pos4"));
                 question.setCorrect_answer(result.getString("question_answer"));
+                question.setTheme(result.getString("question_theme"));
                 question.setQuiz_id(quizId);
 
                 // add to list
@@ -87,7 +88,7 @@ public class ApplicationDAO {
         return answer;
     }
 
-    public List<Quiz> getQuizByTHeme(String theme){
+    public List<Quiz> getQuizByTheme(String theme){
 
         System.out.println("into getQuizByTheme");
 
@@ -703,7 +704,7 @@ public class ApplicationDAO {
         int rowAffected = 0;
         int qId = 0;
 
-        query = "INSERT INTO questions (`question_problem`, `question_pos1`, `question_pos2`, `question_pos3`, `question_pos4`, `question_answer`, `question_quiz_id`) VALUES (?,?,?,?,?,?,?);";
+        query = "INSERT INTO questions (`question_problem`, `question_pos1`, `question_pos2`, `question_pos3`, `question_pos4`, `question_answer`, `question_quiz_id`, `question_theme`) VALUES (?,?,?,?,?,?,?,?);";
 
 
         try {
@@ -715,6 +716,7 @@ public class ApplicationDAO {
             preparedStatement.setString(5, question.getPossibility_4());
             preparedStatement.setString(6, question.getCorrect_answer());
             preparedStatement.setInt(7, question.getQuiz_id());
+            preparedStatement.setString(8, question.getTheme());
             rowAffected = preparedStatement.executeUpdate();
 
             if(rowAffected > 0){
@@ -757,6 +759,19 @@ public class ApplicationDAO {
             preparedStatement.setInt(1, quizId);
             preparedStatement.setInt(2, questionId);
             rowAffected = preparedStatement.executeUpdate();
+
+            // Increment number of Question in Quiz
+            if(rowAffected > 0){
+                query = "UPDATE quiz SET `quiz_nber_questions` = quiz_nber_questions+1 WHERE quiz_id = ?;";
+                try {
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setInt(1, quizId);
+                    rowAffected = preparedStatement.executeUpdate();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
 
             connection.close();
         }
