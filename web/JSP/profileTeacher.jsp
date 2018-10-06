@@ -110,6 +110,7 @@
                         <th scope="col">Lastname</th>
                         <th scope="col">Email</th>
                         <th scope="col">Grades</th>
+                        <th scope="col">Average</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -125,6 +126,7 @@
                                     <button type="submit" name="idIntern" class="btn btn-info btn-sm">See</button>
                                 </form>
                             </td>
+                            <td>${averages[loop.index]}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

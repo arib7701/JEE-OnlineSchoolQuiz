@@ -48,6 +48,7 @@
                         <th scope="col">Lastname</th>
                         <th scope="col">Email</th>
                         <th scope="col">Grades</th>
+                        <th scope="col">Average</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -64,12 +65,14 @@
                                     <button type="submit" name="idInternGrade" class="btn btn-info btn-sm">See</button>
                                 </form>
                             </td>
+                            <td>${averages[loop.index]}</td>
                             <td>
                                 <form action="profileAdmin" method="post">
                                     <input hidden type="text" name="idInternDelete" value="${i.getId()}">
                                     <button type="submit" name="idInternDelete" class="btn btn-danger btn-sm">Unregister</button>
                                 </form>
                             </td>
+
                         </tr>
                     </c:forEach>
                     </tbody>

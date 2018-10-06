@@ -391,6 +391,40 @@ public class ApplicationDAO {
         return quizzes;
     }
 
+    public Double getAverageGradeByInternId(int internId){
+
+        System.out.println("into getAverageGradeByInternId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT avg(grade_value) as avg from grade " +
+                "join intern on grade.grade_intern_id = intern.intern_id " +
+                "where intern.intern_id = ? " +
+                "group by intern.intern_id;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        Double average = 0.0;
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, internId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                average = result.getDouble("avg");
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return average;
+
+    }
+
 
 
 
