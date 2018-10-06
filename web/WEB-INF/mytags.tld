@@ -32,6 +32,12 @@
     </tag>
 
     <tag>
+        <name>getTeacher</name>
+        <tag-class>com.school.tags.teacherHandler</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
         <name>getQuiz</name>
         <tag-class>com.school.tags.quizHandler</tag-class>
         <body-content>empty</body-content>

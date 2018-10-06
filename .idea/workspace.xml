@@ -8,18 +8,20 @@
   <component name="ChangeListManager">
     <list default="true" id="06a3179d-8839-4a13-b30c-07f1e1ac345c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/CSS/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/CSS/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileIntern.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileIntern.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileTeacher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/JSP/profileTeacher.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/CSS/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/CSS/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JSP/about.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/about.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/dao/ApplicationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/dao/ApplicationDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/servlets/CheckQuiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/servlets/CheckQuiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/servlets/ProfileAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/classes/com/school/servlets/ProfileAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/mytags.tld" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/OnlineSchoolApp_war_exploded/WEB-INF/mytags.tld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/dao/ApplicationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/dao/ApplicationDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/servlets/CheckQuiz.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/servlets/CheckQuiz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/servlets/ProfileAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OnlineSchoolApp/com/school/servlets/ProfileAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/JSP/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JSP/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JSP/profileIntern.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/profileIntern.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/mytags.tld" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/mytags.tld" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +51,11 @@
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="7" />
           <entry key="HTML" value="2" />
-          <entry key="JAVA" value="134" />
-          <entry key="JSP" value="80" />
+          <entry key="JAVA" value="144" />
+          <entry key="JSP" value="90" />
           <entry key="Scratch" value="1" />
           <entry key="XHTML" value="2" />
-          <entry key="XML" value="10" />
+          <entry key="XML" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -61,9 +63,9 @@
         <counts>
           <entry key="css" value="106" />
           <entry key="dummy" value="15" />
-          <entry key="java" value="17544" />
-          <entry key="jsp" value="8593" />
-          <entry key="tld" value="292" />
+          <entry key="java" value="18138" />
+          <entry key="jsp" value="9064" />
+          <entry key="tld" value="306" />
           <entry key="xhtml" value="80" />
           <entry key="xml" value="112" />
         </counts>
@@ -72,12 +74,12 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="106" />
-          <entry key="JAVA" value="17538" />
-          <entry key="JSP" value="8593" />
+          <entry key="JAVA" value="18132" />
+          <entry key="JSP" value="9064" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="SQL" value="14" />
+          <entry key="SQL" value="16" />
           <entry key="XHTML" value="80" />
-          <entry key="XML" value="396" />
+          <entry key="XML" value="408" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -85,10 +87,10 @@
           <entry key="class" value="2" />
           <entry key="css" value="7" />
           <entry key="html" value="2" />
-          <entry key="java" value="134" />
-          <entry key="jsp" value="80" />
+          <entry key="java" value="144" />
+          <entry key="jsp" value="90" />
           <entry key="snippet" value="1" />
-          <entry key="tld" value="5" />
+          <entry key="tld" value="6" />
           <entry key="xhtml" value="2" />
           <entry key="xml" value="5" />
         </counts>
@@ -99,11 +101,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="635" column="48" lean-forward="true" selection-start-line="635" selection-start-column="48" selection-end-line="635" selection-end-column="48" />
+            <state relative-caret-position="202">
+              <caret line="353" column="53" selection-start-line="353" selection-start-column="53" selection-end-line="353" selection-end-column="53" />
               <folding>
                 <element signature="method#getQuestionsQuiz#0;class#ApplicationDAO#0" />
                 <element signature="method#getAnswerOfQuestion#0;class#ApplicationDAO#0" />
@@ -111,8 +113,10 @@
                 <element signature="method#getThemes#0;class#ApplicationDAO#0" />
                 <element signature="method#getGradeByIntern#0;class#ApplicationDAO#0" />
                 <element signature="method#getAllInterns#0;class#ApplicationDAO#0" />
+                <element signature="method#getAllTeachers#0;class#ApplicationDAO#0" />
                 <element signature="method#getQuizByTeacherByTheme#0;class#ApplicationDAO#0" />
                 <element signature="method#getThemeByGradeId#0;class#ApplicationDAO#0" />
+                <element signature="method#getQuizByTeacherByTheme#1;class#ApplicationDAO#0" />
                 <element signature="method#logInUser#0;class#ApplicationDAO#0" />
                 <element signature="method#addNewUser#0;class#ApplicationDAO#0" />
                 <element signature="method#addNewGrade#0;class#ApplicationDAO#0" />
@@ -121,6 +125,7 @@
                 <element signature="method#reassignedQuestionsToPool#0;class#ApplicationDAO#0" />
                 <element signature="method#updateQuestionById#0;class#ApplicationDAO#0" />
                 <element signature="method#deleteQuizById#0;class#ApplicationDAO#0" />
+                <element signature="method#&lt;unnamed&gt;#0;class#ApplicationDAO#0" />
                 <element signature="method#getMd5#0;class#ApplicationDAO#0" />
               </folding>
             </state>
@@ -130,60 +135,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileTeacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-285">
-              <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/JSP/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/school/servlets/About.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" column="48" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/school/servlets/LogIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+            <state relative-caret-position="191">
+              <caret line="40" column="9" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="40" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="156" column="102" selection-start-line="156" selection-start-column="102" selection-end-line="156" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -191,24 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/JSP/profileTeacher.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="34" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#hr#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileIntern.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="37" column="76" selection-start-line="37" selection-start-column="76" selection-end-line="37" selection-end-column="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="251">
+              <caret line="37" column="3" lean-forward="true" selection-end-line="201" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -262,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/com/school/tags/TagHandler.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/GetHomePage.java" />
-        <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" />
         <option value="$PROJECT_DIR$/src/com/school/tags/internHandler.java" />
         <option value="$PROJECT_DIR$/src/com/school/beans/Question.java" />
         <option value="$PROJECT_DIR$/web/JSP/takeQuiz.jsp" />
@@ -270,27 +227,29 @@
         <option value="$PROJECT_DIR$/web/JSP/verifyNewQuiz.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/beans/Quiz.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/VerifyNewQuiz.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/mytags.tld" />
-        <option value="$PROJECT_DIR$/src/com/school/servlets/RegisterIntern.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileIntern.java" />
-        <option value="$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/NewQuiz.java" />
         <option value="$PROJECT_DIR$/src/com/school/tags/quizHandler.java" />
         <option value="$PROJECT_DIR$/web/JSP/editQuiz.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/EditQuiz.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileTeacher.java" />
         <option value="$PROJECT_DIR$/src/com/school/tags/gradeHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" />
         <option value="$PROJECT_DIR$/web/CSS/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/web/CSS/styles.css" />
         <option value="$PROJECT_DIR$/web/JSP/profileTeacher.jsp" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/About.java" />
         <option value="$PROJECT_DIR$/src/com/school/servlets/LogIn.java" />
-        <option value="$PROJECT_DIR$/web/JSP/header.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/profileIntern.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/about.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/login.jsp" />
+        <option value="$PROJECT_DIR$/src/com/school/tags/teacherHandler.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/mytags.tld" />
+        <option value="$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java" />
+        <option value="$PROJECT_DIR$/src/com/school/servlets/RegisterIntern.java" />
+        <option value="$PROJECT_DIR$/web/JSP/header.jsp" />
         <option value="$PROJECT_DIR$/web/JSP/profileAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java" />
+        <option value="$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java" />
       </list>
     </option>
   </component>
@@ -346,6 +305,13 @@
               <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="school" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OnlineSchoolApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="school" type="462c0819:PsiDirectoryNode" />
               <item name="servlets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -357,13 +323,13 @@
               <item name="OnlineSchoolApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="CSS" type="462c0819:PsiDirectoryNode" />
+              <item name="JSP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OnlineSchoolApp" type="b2602c69:ProjectViewProjectNode" />
               <item name="OnlineSchoolApp" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="JSP" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -379,7 +345,7 @@
     <property name="SearchEverywhereHistoryKey" value="test&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538834794787" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538837312930" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -500,12 +466,12 @@
       <workItem from="1538551118713" duration="1077000" />
       <workItem from="1538553890543" duration="13413000" />
       <workItem from="1538636696499" duration="22284000" />
-      <workItem from="1538722544958" duration="25663000" />
+      <workItem from="1538722544958" duration="27953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140283000" />
+    <option name="totallyTimeSpent" value="142573000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,20 +615,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/servlets/TakeQuiz.java" />
-    <entry file="file://$PROJECT_DIR$/web/JSP/entry_result.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/errorPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/JSFBean.java" />
     <entry file="file://$PROJECT_DIR$/web/index.xhtml" />
     <entry file="file://$PROJECT_DIR$/src/com/school/dao/DBConnection.java">
@@ -686,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/tags/internHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/beans/Grade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-454">
@@ -703,55 +645,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="32" column="81" lean-forward="true" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mytags.tld">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/newQuiz.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/RegisterIntern.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="31" column="51" lean-forward="true" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -796,40 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="70" column="72" selection-start-line="70" selection-start-column="72" selection-end-line="70" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/EditQuiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/editQuiz.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/beans/Quiz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="41" column="32" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileIntern.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -847,32 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="635" column="48" lean-forward="true" selection-start-line="635" selection-start-column="48" selection-end-line="635" selection-end-column="48" />
-          <folding>
-            <element signature="method#getQuestionsQuiz#0;class#ApplicationDAO#0" />
-            <element signature="method#getAnswerOfQuestion#0;class#ApplicationDAO#0" />
-            <element signature="method#getQuizByTHeme#0;class#ApplicationDAO#0" />
-            <element signature="method#getThemes#0;class#ApplicationDAO#0" />
-            <element signature="method#getGradeByIntern#0;class#ApplicationDAO#0" />
-            <element signature="method#getAllInterns#0;class#ApplicationDAO#0" />
-            <element signature="method#getQuizByTeacherByTheme#0;class#ApplicationDAO#0" />
-            <element signature="method#getThemeByGradeId#0;class#ApplicationDAO#0" />
-            <element signature="method#logInUser#0;class#ApplicationDAO#0" />
-            <element signature="method#addNewUser#0;class#ApplicationDAO#0" />
-            <element signature="method#addNewGrade#0;class#ApplicationDAO#0" />
-            <element signature="method#addNewQuiz#0;class#ApplicationDAO#0" />
-            <element signature="method#addNewQuestion#0;class#ApplicationDAO#0" />
-            <element signature="method#reassignedQuestionsToPool#0;class#ApplicationDAO#0" />
-            <element signature="method#updateQuestionById#0;class#ApplicationDAO#0" />
-            <element signature="method#deleteQuizById#0;class#ApplicationDAO#0" />
-            <element signature="method#getMd5#0;class#ApplicationDAO#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/CSS/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
@@ -887,56 +724,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/profileTeacher.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#hr#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileTeacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
-          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/school/servlets/GetHomePage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/LogIn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -962,11 +755,195 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
+    <entry file="file://$PROJECT_DIR$/web/JSP/newQuiz.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="840">
+          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="81" lean-forward="true" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/errorPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/editQuiz.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="79" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/profileIntern.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="31" lean-forward="true" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#hr#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/profileTeacher.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="37" column="3" lean-forward="true" selection-end-line="201" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/beans/Quiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/internHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/tags/teacherHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/mytags.tld">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/entry_result.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/EditQuiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="53" column="51" selection-start-line="53" selection-start-column="51" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/CheckQuiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/RegisterIntern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/LogIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="51" column="67" lean-forward="true" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileTeacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="40" column="9" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="40" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/JSP/profileAdmin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="156" column="102" selection-start-line="156" selection-start-column="102" selection-end-line="156" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/servlets/ProfileAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/school/dao/ApplicationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="353" column="53" selection-start-line="353" selection-start-column="53" selection-end-line="353" selection-end-column="53" />
+          <folding>
+            <element signature="method#getQuestionsQuiz#0;class#ApplicationDAO#0" />
+            <element signature="method#getAnswerOfQuestion#0;class#ApplicationDAO#0" />
+            <element signature="method#getQuizByTHeme#0;class#ApplicationDAO#0" />
+            <element signature="method#getThemes#0;class#ApplicationDAO#0" />
+            <element signature="method#getGradeByIntern#0;class#ApplicationDAO#0" />
+            <element signature="method#getAllInterns#0;class#ApplicationDAO#0" />
+            <element signature="method#getAllTeachers#0;class#ApplicationDAO#0" />
+            <element signature="method#getQuizByTeacherByTheme#0;class#ApplicationDAO#0" />
+            <element signature="method#getThemeByGradeId#0;class#ApplicationDAO#0" />
+            <element signature="method#getQuizByTeacherByTheme#1;class#ApplicationDAO#0" />
+            <element signature="method#logInUser#0;class#ApplicationDAO#0" />
+            <element signature="method#addNewUser#0;class#ApplicationDAO#0" />
+            <element signature="method#addNewGrade#0;class#ApplicationDAO#0" />
+            <element signature="method#addNewQuiz#0;class#ApplicationDAO#0" />
+            <element signature="method#addNewQuestion#0;class#ApplicationDAO#0" />
+            <element signature="method#reassignedQuestionsToPool#0;class#ApplicationDAO#0" />
+            <element signature="method#updateQuestionById#0;class#ApplicationDAO#0" />
+            <element signature="method#deleteQuizById#0;class#ApplicationDAO#0" />
+            <element signature="method#&lt;unnamed&gt;#0;class#ApplicationDAO#0" />
+            <element signature="method#getMd5#0;class#ApplicationDAO#0" />
           </folding>
         </state>
       </provider>

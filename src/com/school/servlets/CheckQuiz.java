@@ -46,8 +46,8 @@ public class CheckQuiz extends HttpServlet {
             if(result == 100){
                 pass = true;
                 req.setAttribute("pass", pass);
-                //req.getRequestDispatcher("/JSP/entry_result.jsp").forward(req,resp);
-                resp.sendRedirect(req.getContextPath() + "/entry_result");
+                req.getRequestDispatcher("/JSP/entry_result.jsp").forward(req,resp);
+                //resp.sendRedirect(req.getContextPath() + "/entry_result");
             }
             else {
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);

@@ -236,6 +236,45 @@ public class ApplicationDAO {
         return users;
     }
 
+    public List<User> getAllTeachers(){
+        System.out.println("into getAllTeachers");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM teacher;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        User user;
+        List<User> users = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                user = new User();
+                user.setId(result.getInt("teacher_id"));
+                user.setFirstname(result.getString("teacher_firstname"));
+                user.setLastname(result.getString("teacher_lastname"));
+                user.setEmail(result.getString("teacher_email"));
+                user.setUsername(result.getString("teacher_username"));
+                user.setPassword(result.getString("teacher_password"));
+
+                // add to list
+                users.add(user);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return users;
+    }
+
     public List<Quiz> getQuizByTeacherByTheme(int teacherId, String theme){
 
         System.out.println("into getQuizByTeacherByTheme");
@@ -311,6 +350,47 @@ public class ApplicationDAO {
 
         return theme;
     }
+
+    public List<Quiz> getQuizByTeacher(int teacherId){
+
+        System.out.println("into getQuizByTeacher");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM quiz WHERE quiz_teacher_id = ? ;";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        Quiz quiz;
+        List<Quiz> quizzes = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, teacherId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                quiz = new Quiz();
+                quiz.setId(result.getInt("quiz_id"));
+                quiz.setTheme(result.getString("quiz_theme"));
+                quiz.setNber_questions(result.getInt("quiz_nber_questions"));
+                quiz.setTeacher_id(result.getInt("quiz_teacher_id"));
+                System.out.println("quiz theme and teacher " + quiz.getTheme() + " " + quiz.getTeacher_id());
+
+                // add to list
+                quizzes.add(quiz);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return quizzes;
+    }
+
 
 
 
@@ -593,6 +673,8 @@ public class ApplicationDAO {
     }
 
 
+
+
     // DELETE FUNCTIONS
     public int deleteQuizById(int quizId){
 
@@ -628,6 +710,40 @@ public class ApplicationDAO {
         }
 
         return rowAffected;
+    }
+
+    public int deleteUserById(int userId, String status){
+
+        System.out.println("into deleteUserByID");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = new String();
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        if(status.equals("IN")){
+            query = "DELETE FROM intern  WHERE (intern_id = ?);";
+        } else if (status.equals("TE")){
+            query = "DELETE FROM teacher  WHERE (teacher_id = ?);";
+        } else if (status.equals("AD")){
+            query = "DELETE FROM admin  WHERE (admin_id = ?);";
+        }
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, userId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+
     }
 
 

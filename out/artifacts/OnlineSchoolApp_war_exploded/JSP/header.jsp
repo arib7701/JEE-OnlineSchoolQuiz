@@ -27,10 +27,14 @@
                     </c:if>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Log In</a>
+                    <c:if test="${sessionScope.admin == null and sessionScope.teacher == null and sessionScope.intern == null}">
+                        <a class="nav-link" href="login">Log In</a>
+                    </c:if>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout">LogOut</a>
+                    <c:if test="${sessionScope.admin != null or sessionScope.teacher != null or sessionScope.intern != null}">
+                        <a class="nav-link" href="logout">LogOut</a>
+                    </c:if>
                 </li>
             </ul>
 
