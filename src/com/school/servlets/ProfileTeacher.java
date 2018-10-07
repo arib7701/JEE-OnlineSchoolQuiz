@@ -43,7 +43,7 @@ public class ProfileTeacher extends HttpServlet {
 
             int quizId = Integer.parseInt(req.getParameter("quizIdEdit"));
             List<Question> questions = dao.getQuestionsQuiz(quizId);
-            req.setAttribute("questions", questions);
+            req.setAttribute("quizId", quizId);
             req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
         }
         else if(req.getParameter("quizIdDelete") != null){

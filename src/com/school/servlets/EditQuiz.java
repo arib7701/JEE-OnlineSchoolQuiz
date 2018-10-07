@@ -70,9 +70,10 @@ public class EditQuiz extends HttpServlet {
             int i = Integer.parseInt((req.getParameter("toChange")));
             int questionId = Integer.parseInt(req.getParameter("id_"+i));
             int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
-            System.out.println("question to reassign " + questionId);
-            int deleted = dao.reassignQuestions(questionId, 2, quizId);
-            if(deleted > 0){
+
+            int reassigned = dao.reassignQuestions(questionId, 2, quizId);
+            if(reassigned > 0){
+                req.setAttribute("quizId", quizId);
                 req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
             }
             else {
@@ -88,6 +89,7 @@ public class EditQuiz extends HttpServlet {
             int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
             int deleted = dao.deleteQuestionById(questionId, quizId);
             if(deleted > 0){
+                req.setAttribute("quizId", quizId);
                 req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
             }
             else {
