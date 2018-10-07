@@ -104,7 +104,7 @@ public class ProfileAdmin extends HttpServlet {
             int quizId = Integer.parseInt(req.getParameter("quizIdDelete"));
             int delete = dao.deleteQuizById(quizId);
             System.out.println(delete);
-            req.getRequestDispatcher("/JSP/profileTeacher.jsp").forward(req,resp);
+            req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
         }
 
         // Add New User

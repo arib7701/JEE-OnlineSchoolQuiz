@@ -242,6 +242,44 @@ public class ApplicationDAO {
         return grades;
     }
 
+    public List<Grade> getGradeByQuizId(int quizId){
+
+        System.out.println("into getGradeByQuizId");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM grade WHERE grade_quiz_id = ?";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+        List<Grade> grades = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                Grade grade = new Grade();
+                grade.setGrade_id(result.getInt("grade_id"));
+                grade.setIntern_id(result.getInt("grade_intern_id"));
+                grade.setQuiz_id(result.getInt("grade_quiz_id"));
+                grade.setGrade_value(result.getDouble("grade_value"));
+                grade.setGrade_date(result.getDate("grade_date"));
+
+                // add to list
+                grades.add(grade);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return grades;
+    }
+
     public List<User> getAllInterns(){
         System.out.println("into getAllInterns");
 
@@ -851,6 +889,34 @@ public class ApplicationDAO {
         return rowAffected;
     }
 
+    public int reassignGrade(int gradeId, int newQuizId){
+
+        System.out.println("into reassignGrades");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        query = "UPDATE grade SET `grade_quiz_id` = ? WHERE grade_id = (?);";
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, newQuizId);
+            preparedStatement.setInt(2, gradeId);
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+    }
+
     public int reassignQuiz(int quizId, int teacherId){
 
         System.out.println("into reassignQuiz");
@@ -985,6 +1051,16 @@ public class ApplicationDAO {
             reassign = reassignQuestions(q.getId(), 2, quizId);
             if(reassign < 1){
                 System.out.println("Error reassigning question to pool - question: " + q.getId());
+            }
+        }
+
+        //Second Reassign Grade to Unassigned Pool
+        List<Grade> grades = getGradeByQuizId(quizId);
+        reassign = 0;
+        for(Grade g : grades){
+            reassign = reassignGrade(g.getGrade_id(), 2);
+            if(reassign < 1){
+                System.out.println("Error reassigning grade to pool - grade: " + g.getGrade_id());
             }
         }
 

@@ -101,6 +101,7 @@
                                     <th scope="col">Grade</th>
                                     <th scope="col">Date</th>
                                     <th scope="col">Pass</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -115,6 +116,11 @@
                                             </c:if>
                                             <c:if test="${g.getGrade_value() < 50}">
                                                 <span class="badge badge-pill badge-danger">Danger</span>
+                                            </c:if>
+                                        </td>
+                                        <td>
+                                            <c:if test="${g.getQuiz_id() == 2}">
+                                                <span class="badge badge-pill badge-danger">Quiz Gone</span>
                                             </c:if>
                                         </td>
                                     </tr>

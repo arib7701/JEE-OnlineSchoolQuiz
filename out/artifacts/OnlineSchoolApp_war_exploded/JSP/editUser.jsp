@@ -16,7 +16,7 @@
 
     <div class="jumbotron">
         <h1 class="display-3">Make Changes!</h1>
-        <p class="lead"Update your information!</p>
+        <p class="lead">Update your information!</p>
         <hr class="my-4">
     </div>
 
