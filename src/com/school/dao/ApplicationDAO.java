@@ -919,6 +919,59 @@ public class ApplicationDAO {
         return rowAffected;
     }
 
+    public int updateUserById(User user, String status){
+
+        System.out.println("into updateUserById");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = null;
+        PreparedStatement preparedStatement;
+        int rowAffected = 0;
+
+        if(status.equals("IN")){
+            query = "UPDATE intern " +
+                    "SET `intern_firstname` = ?" +
+                    ", `intern_lastname` = ?" +
+                    ", `intern_email` = ?" +
+                    ", `intern_username` = ?" +
+                    " WHERE intern_id = (?);";
+        } else if (status.equals("TE")){
+            query = "UPDATE teacher " +
+                    "SET `teacher_firstname` = ?" +
+                    ", `teacher_lastname` = ?" +
+                    ", `teacher_email` = ?" +
+                    ", `teacher_username` = ?" +
+                    " WHERE teacher_id = (?);";
+        } else if (status.equals("AD")){
+            query = "UPDATE admin " +
+                    "SET `admin_firstname` = ?" +
+                    ", `admin_lastname` = ?" +
+                    ", `admin_email` = ?" +
+                    ", `admin_username` = ?" +
+                    " WHERE admin_id = (?);";
+        }
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getFirstname());
+            preparedStatement.setString(2, user.getLastname());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setString(4, user.getUsername());
+            preparedStatement.setInt(5, user.getId());
+            rowAffected = preparedStatement.executeUpdate();
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return rowAffected;
+
+    }
+
 
 
 

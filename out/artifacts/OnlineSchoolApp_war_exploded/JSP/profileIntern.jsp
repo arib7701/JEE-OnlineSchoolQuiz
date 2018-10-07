@@ -20,6 +20,22 @@
         <p class="lead">Start learning and improving by taking quizzes!</p>
         <hr class="my-4">
     </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-lg-1">
+            <form action="editUser" method="post">
+                <input type="text" name="editUserForm" hidden>
+                <button type="submit" name="editUserForm" class="btn btn-info">Edit Your Info</button>
+            </form>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <hr style="background-color: white">
+    <br>
+    <br>
+
     <mtag:getTheme/>
     <c:if test="${themes != null}">
     <div class="row justify-content-md-center">

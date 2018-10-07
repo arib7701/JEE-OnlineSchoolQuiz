@@ -21,10 +21,16 @@
     </div>
 
     <div class="row justify-content-md-center">
-        <div class="col-lg-1">
+        <div class="col-lg-2">
             <form action="profileAdmin" method="post">
                 <input type="text" name="newUser" hidden>
                 <button type="submit" name="newUser" class="btn btn-success">Add New User</button>
+            </form>
+        </div>
+        <div class="col-lg-2">
+            <form action="editUser" method="post">
+                <input type="text" name="editUserForm" hidden>
+                <button type="submit" name="editUserForm" class="btn btn-info">Edit Your Info</button>
             </form>
         </div>
     </div>
