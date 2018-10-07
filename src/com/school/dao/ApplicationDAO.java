@@ -13,13 +13,57 @@ public class ApplicationDAO {
 
 
     // GET FUNCTIONS
-    public List<Question> getQuestionsQuiz(int quizId){
+    public List<Question> getQuestionsQuizRandom(int quizId){
 
         System.out.println("into getQuestionsQuiz");
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
         String query = "SELECT * FROM questions WHERE question_quiz_id = ? ORDER BY RAND();";
+        PreparedStatement preparedStatement;
+        ResultSet result;
+
+        Question question = new Question();
+        List<Question> questions = new ArrayList<>();
+
+        try {
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, quizId);
+            result = preparedStatement.executeQuery();
+
+            while(result.next()){
+                question = new Question();
+                question.setId(result.getInt("question_id"));
+                question.setProblem(result.getString("question_problem"));
+                question.setPossibility_1(result.getString("question_pos1"));
+                question.setPossibility_2(result.getString("question_pos2"));
+                question.setPossibility_3(result.getString("question_pos3"));
+                question.setPossibility_4(result.getString("question_pos4"));
+                question.setCorrect_answer(result.getString("question_answer"));
+                question.setTheme(result.getString("question_theme"));
+                question.setQuiz_id(quizId);
+
+                // add to list
+                questions.add(question);
+            }
+
+            connection.close();
+        }
+        catch (SQLException e){
+            System.out.println("SQL Exception");
+            e.printStackTrace();
+        }
+
+        return questions;
+    }
+
+    public List<Question> getQuestionsQuiz(int quizId){
+
+        System.out.println("into getQuestionsQuiz");
+
+        // Set UP DB Query
+        Connection connection = DBConnection.getConnectionToDatabase();
+        String query = "SELECT * FROM questions WHERE question_quiz_id = ?;";
         PreparedStatement preparedStatement;
         ResultSet result;
 
@@ -529,7 +573,6 @@ public class ApplicationDAO {
 
 
 
-
     // VERIFY FUNCTIONS
     public User logInUser(String status, String username){
 
@@ -719,12 +762,26 @@ public class ApplicationDAO {
             preparedStatement.setString(8, question.getTheme());
             rowAffected = preparedStatement.executeUpdate();
 
+
+            // Get Id of new question back
             if(rowAffected > 0){
                 query = "SELECT question_id FROM questions ORDER BY question_id DESC LIMIT 1;";
                 preparedStatement = connection.prepareStatement(query);
                 ResultSet result = preparedStatement.executeQuery();
                 if(result.next()){
                     qId = result.getInt(1);
+                }
+            }
+
+            // Increment number of added Question in Quiz
+            if(rowAffected > 0) {
+                query = "UPDATE quiz SET `quiz_nber_questions` = quiz_nber_questions+1 WHERE quiz_id = ?;";
+                try {
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setInt(1, question.getQuiz_id());
+                    rowAffected = preparedStatement.executeUpdate();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
 

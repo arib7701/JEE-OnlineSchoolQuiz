@@ -67,9 +67,11 @@ public class EditQuiz extends HttpServlet {
 
         // Unassigned Chosen Question
         else if(req.getParameter("questionIdUnassigned") != null){
-            int i = Integer.parseInt((req.getParameter("toChange")));
+            int i = Integer.parseInt((req.getParameter("questionIdUnassigned")));
+            System.out.println("i is " + i);
             int questionId = Integer.parseInt(req.getParameter("id_"+i));
-            int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
+            System.out.println("question Id i is " + questionId);
+            int quizId = Integer.parseInt(req.getParameter("quizId"));
 
             int reassigned = dao.reassignQuestions(questionId, 2, quizId);
             if(reassigned > 0){
@@ -84,9 +86,9 @@ public class EditQuiz extends HttpServlet {
 
         // Delete Chosen Question
         else if(req.getParameter("questionIdDelete") != null){
-            int i = Integer.parseInt((req.getParameter("toChange")));
+            int i = Integer.parseInt((req.getParameter("questionIdDelete")));
             int questionId = Integer.parseInt(req.getParameter("id_"+i));
-            int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
+            int quizId = Integer.parseInt(req.getParameter("quizId"));
             int deleted = dao.deleteQuestionById(questionId, quizId);
             if(deleted > 0){
                 req.setAttribute("quizId", quizId);
@@ -94,6 +96,36 @@ public class EditQuiz extends HttpServlet {
             }
             else {
                 System.out.println("Error delete question");
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
+        }
+
+        // Add New Question Inputs in Form
+        else if(req.getParameter("add") != null){
+            int quizId = Integer.parseInt(req.getParameter("quizId"));
+            req.setAttribute("quizId", quizId);
+            req.setAttribute("showNewQuestionInputs", true);
+            req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
+        }
+
+        else if(req.getParameter("save") != null){
+            String problem = req.getParameter("newProblem");
+            String pos1 = req.getParameter("newPos1");
+            String pos2 = req.getParameter("newPos2");
+            String pos3 = req.getParameter("newPos3");
+            String pos4 = req.getParameter("newPos4");
+            String answer = req.getParameter("newAnswer");
+            String theme = req.getParameter("theme");
+            int quizId = Integer.parseInt(req.getParameter("quizId"));
+
+            Question question = new Question(problem, pos1, pos2, pos3, pos4, answer, quizId, theme);
+            int added = dao.addNewQuestion(question);
+            if(added > 0){
+                req.setAttribute("quizId", quizId);
+                req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
+            }
+            else {
+                System.out.println("Error adding question");
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
         }

@@ -32,7 +32,7 @@ public class ProfileIntern extends HttpServlet {
         else if( req.getParameter("quiz") != null){
 
             int quizId = Integer.parseInt(req.getParameter("quiz"));
-            List<Question> questions = dao.getQuestionsQuiz(quizId);
+            List<Question> questions = dao.getQuestionsQuizRandom(quizId);
             req.setAttribute("questions", questions);
             req.setAttribute("quizId", quizId);
             req.getRequestDispatcher("/JSP/takeQuiz.jsp").forward(req,resp);
