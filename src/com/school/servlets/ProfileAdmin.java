@@ -127,7 +127,7 @@ public class ProfileAdmin extends HttpServlet {
         else if(req.getParameter("idQuizQuestionReassign") != null){
             int questionId = Integer.parseInt(req.getParameter("questionIdReassign"));
             int quizId = Integer.parseInt(req.getParameter("idQuizQuestionReassign"));
-            int reassigned = dao.reassignQuestions(questionId, quizId);
+            int reassigned = dao.reassignQuestions(questionId, quizId, 2);
             if(reassigned > 0){
                 req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
             }
@@ -139,7 +139,7 @@ public class ProfileAdmin extends HttpServlet {
         // Delete Question from DB
         else if (req.getParameter("questionDelete") != null){
             int questionId = Integer.parseInt(req.getParameter("questionDelete"));
-            int deleted = dao.deleteQuestionById(questionId);
+            int deleted = dao.deleteQuestionById(questionId, 1);
             if(deleted > 0){
                 req.getRequestDispatcher("/JSP/profileAdmin.jsp").forward(req,resp);
             }

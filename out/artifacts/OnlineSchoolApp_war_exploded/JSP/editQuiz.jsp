@@ -26,9 +26,13 @@
                     <input hidden name="type" value="quiz">
                     <fieldset>
                         <c:forEach items="${requestScope.questions}" var="q" varStatus="loop">
-                            <h3 class="align-content-lg-center">Question ${loop.count}</h3>
                             <input type="text" hidden name="id_${loop.count}" value="${q.getId()}">
                             <input type="text" hidden name="quizId_${loop.count}" value="${q.getQuiz_id()}">
+                            <input type="text" hidden name="toChange" value="${loop.count}">
+                            <h3 class="align-content-lg-center">Question ${loop.count}
+                                <span style="padding-left: 15px;"><button type="submit" name="questionIdUnassigned" class="btn btn-warning btn-sm">Unassigned</button></span>
+                                <span><button type="submit" name="questionIdDelete" class="btn btn-danger btn-sm">Delete</button></span>
+                            </h3>
                             <fieldset class="form-group">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="problem_${q.getId()}" id="problem" value="${q.getProblem()}">

@@ -742,9 +742,9 @@ public class ApplicationDAO {
 
 
     // UPDATE FUNCTIONS
-    public int reassignQuestions(int questionId, int quizId){
+    public int reassignQuestions(int questionId, int newQuizId, int oldQuizId){
 
-        System.out.println("into reassignedQuestionsToPool");
+        System.out.println("into reassignedQuestions");
 
         // Set UP DB Query
         Connection connection = DBConnection.getConnectionToDatabase();
@@ -756,16 +756,27 @@ public class ApplicationDAO {
 
         try {
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, quizId);
+            preparedStatement.setInt(1, newQuizId);
             preparedStatement.setInt(2, questionId);
             rowAffected = preparedStatement.executeUpdate();
 
-            // Increment number of Question in Quiz
+            // Increment number of Question in New assigned Quiz
             if(rowAffected > 0){
                 query = "UPDATE quiz SET `quiz_nber_questions` = quiz_nber_questions+1 WHERE quiz_id = ?;";
                 try {
                     preparedStatement = connection.prepareStatement(query);
-                    preparedStatement.setInt(1, quizId);
+                    preparedStatement.setInt(1, newQuizId);
+                    rowAffected = preparedStatement.executeUpdate();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                // Decrement number of Question in Old Quiz
+                query = "UPDATE quiz SET `quiz_nber_questions` = quiz_nber_questions-1 WHERE quiz_id = ?;";
+                try {
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setInt(1, oldQuizId);
                     rowAffected = preparedStatement.executeUpdate();
                 }
                 catch (Exception e){
@@ -861,7 +872,7 @@ public class ApplicationDAO {
         List<Question> questions = getQuestionsQuiz(quizId);
         int reassign = 0;
         for(Question q : questions){
-            reassign = reassignQuestions(q.getId(), 2);
+            reassign = reassignQuestions(q.getId(), 2, quizId);
             if(reassign < 1){
                 System.out.println("Error reassigning question to pool - question: " + q.getId());
             }
@@ -934,7 +945,7 @@ public class ApplicationDAO {
 
     }
 
-    public int deleteQuestionById(int questionId){
+    public int deleteQuestionById(int questionId, int quizId){
 
         System.out.println("into deleteQuestionById");
 
@@ -944,12 +955,29 @@ public class ApplicationDAO {
         PreparedStatement preparedStatement;
         int rowAffected = 0;
 
-        query = "DELETE FROM questions  WHERE (question_id = ?);";
+        // Decrement number of Question in Quiz
+        query = "UPDATE quiz " +
+                "JOIN questions on questions.question_quiz_id = quiz.quiz_id " +
+                "SET `quiz_nber_questions` = quiz_nber_questions-1 " +
+                "WHERE question_quiz_id = ?;";
 
         try {
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, questionId);
-            rowAffected = preparedStatement.executeUpdate();
+             preparedStatement = connection.prepareStatement(query);
+             preparedStatement.setInt(1, quizId);
+             rowAffected = preparedStatement.executeUpdate();
+
+            // Then Delete question
+            if(rowAffected > 0){
+                query = "DELETE FROM questions  WHERE (question_id = ?);";
+                try {
+                    preparedStatement = connection.prepareStatement(query);
+                    preparedStatement.setInt(1, questionId);
+                    rowAffected = preparedStatement.executeUpdate();
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
 
             connection.close();
         }

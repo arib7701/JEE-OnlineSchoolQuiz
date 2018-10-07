@@ -1,10 +1,7 @@
 package com.school.servlets;
 
 import com.school.beans.Question;
-import com.school.beans.Quiz;
-import com.school.beans.User;
 import com.school.dao.ApplicationDAO;
-import javafx.application.Application;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +19,7 @@ public class EditQuiz extends HttpServlet {
 
         ApplicationDAO dao = new ApplicationDAO();
 
+        // Edit All Quiz Questions
         if(req.getParameter("edit") != null){
 
             int nber_Q = Integer.parseInt(req.getParameter("nber_Q"));
@@ -55,8 +53,47 @@ public class EditQuiz extends HttpServlet {
             req.setAttribute("questions", questions);
             req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
         }
+
+        // Return to Profile - No Change
         else if(req.getParameter("return") != null){
-            resp.sendRedirect(req.getContextPath() + "/profileTeacher");
+
+            if(req.getSession().getAttribute("teacher") != null){
+                resp.sendRedirect(req.getContextPath() + "/profileTeacher");
+            }
+            if(req.getSession().getAttribute("admin") != null){
+                resp.sendRedirect(req.getContextPath() + "/profileAdmin");
+            }
+        }
+
+        // Unassigned Chosen Question
+        else if(req.getParameter("questionIdUnassigned") != null){
+            int i = Integer.parseInt((req.getParameter("toChange")));
+            int questionId = Integer.parseInt(req.getParameter("id_"+i));
+            int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
+            System.out.println("question to reassign " + questionId);
+            int deleted = dao.reassignQuestions(questionId, 2, quizId);
+            if(deleted > 0){
+                req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
+            }
+            else {
+                System.out.println("Error reassign question");
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
+        }
+
+        // Delete Chosen Question
+        else if(req.getParameter("questionIdDelete") != null){
+            int i = Integer.parseInt((req.getParameter("toChange")));
+            int questionId = Integer.parseInt(req.getParameter("id_"+i));
+            int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
+            int deleted = dao.deleteQuestionById(questionId, quizId);
+            if(deleted > 0){
+                req.getRequestDispatcher("/JSP/editQuiz.jsp").forward(req,resp);
+            }
+            else {
+                System.out.println("Error delete question");
+                req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
+            }
         }
     }
 
