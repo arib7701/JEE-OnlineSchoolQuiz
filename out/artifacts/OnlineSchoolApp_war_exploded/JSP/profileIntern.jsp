@@ -14,6 +14,7 @@
 
 <%@ include file="header.jsp"%>
 
+<c:if test="${sessionScope.intern != null}">
 <div class="container" id="main">
    <div class="jumbotron">
         <h1 class="display-3">Welcome, <c:out value="${sessionScope.intern.getFirstname()}"></c:out>!</h1>
@@ -139,5 +140,6 @@
     </c:if>
 </div>
 </div>
+</c:if>
 </body>
 </html>

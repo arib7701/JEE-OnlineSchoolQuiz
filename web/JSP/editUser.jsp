@@ -12,6 +12,7 @@
 
 <%@ include file="header.jsp"%>
 
+<c:if test="${sessionScope.teacher != null or sessionScope.admin != null}">
 <div class="container" id="main">
 
     <div class="jumbotron">
@@ -69,5 +70,6 @@
     </div>
 </div>
 </div>
+</c:if>
 </body>
 </html>

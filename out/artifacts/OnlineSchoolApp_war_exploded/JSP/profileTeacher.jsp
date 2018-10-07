@@ -12,7 +12,7 @@
 <body>
 
 <%@ include file="header.jsp"%>
-
+<c:if test="${sessionScope.teacher != null}">
 <div class="container" id="main">
    <div class="jumbotron">
         <h1 class="display-3">Welcome, <c:out value="${sessionScope.teacher.getFirstname()}"></c:out>!</h1>
@@ -57,7 +57,7 @@
                     <div id="myTabContent" class="tab-content">
                         <c:forEach items="${themes}" var="themeTab" varStatus="loop">
                             <mtag:getQuiz userId="${sessionScope.teacher.getId()}" theme="${themeTab}" />
-                            <c:if test="${quizzes != null}">
+                            <c:if test="${quizzes.size() > 0}">
                                 <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
                                     <table class="table table-hover table-sm">
                                         <tbody>
@@ -196,7 +196,7 @@
         </c:if>
     </div>
 </div>
-
+</c:if>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){

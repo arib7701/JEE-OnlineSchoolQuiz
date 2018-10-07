@@ -49,7 +49,8 @@ public class quizHandler extends SimpleTagSupport {
             getJspContext().setAttribute("counts", counts);
             getJspContext().setAttribute("averagesQuiz", averages);
             getJspContext().setAttribute("quizzes", quizzes);
-        } else {
+        }
+        else {
             getJspContext().setAttribute("noquiz", "You don't have quizzes yet. Time to take create one!");
         }
     }

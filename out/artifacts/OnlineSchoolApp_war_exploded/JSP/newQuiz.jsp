@@ -12,7 +12,7 @@
 <body>
 
 <%@ include file="header.jsp"%>
-
+<c:if test="${sessionScope.teacher != null}">
 <div class="container" id="main">
     <div class="jumbotron">
         <h1 class="display-3">Welcome, <c:out value="${sessionScope.teacher.getFirstname()}"></c:out>!</h1>
@@ -84,5 +84,6 @@
     </div>
     </c:if>
 </div>
+</c:if>
 </body>
 </html>

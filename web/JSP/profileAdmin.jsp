@@ -12,7 +12,7 @@
 <body>
 
 <%@ include file="header.jsp"%>
-
+<c:if test="${sessionScope.admin != null}">
 <div class="container" id="main">
     <div class="jumbotron">
         <h1 class="display-3">Welcome, <c:out value="${sessionScope.admin.getFirstname()}"></c:out>!</h1>
@@ -461,6 +461,7 @@
         </c:if>
     </div>
 </div>
+</c:if>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
