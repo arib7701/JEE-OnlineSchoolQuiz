@@ -21,12 +21,12 @@ public class quizThemeHandler extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException {
 
-        List<Quiz> quizzes = null;
+        List<Quiz> quizzes;
 
         quizzes = dao.getQuizByTheme(theme);
 
         if(quizzes.size() > 0){
-            getJspContext().setAttribute("quizzesTheme", quizzes);
+            getJspContext().setAttribute("quizzes", quizzes);
         } else {
             getJspContext().setAttribute("noquiz", "There is no quiz with that theme yet!");
         }

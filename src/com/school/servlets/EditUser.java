@@ -45,6 +45,20 @@ public class EditUser extends HttpServlet {
             req.getRequestDispatcher("/JSP/editUser.jsp").forward(req,resp);
         }
 
+        // Return to Profile - No Change
+        else if(req.getParameter("return") != null){
+
+            if(req.getSession().getAttribute("teacher") != null){
+                resp.sendRedirect(req.getContextPath() + "/profileTeacher");
+            }
+            if(req.getSession().getAttribute("admin") != null){
+                resp.sendRedirect(req.getContextPath() + "/profileAdmin");
+            }
+            if(req.getSession().getAttribute("intern") != null){
+                resp.sendRedirect(req.getContextPath() + "/profileIntern");
+            }
+        }
+
         else if(req.getParameter("saveEdits") != null) {
             int id = Integer.parseInt(req.getParameter("id"));
             String firstname = req.getParameter("firstname");

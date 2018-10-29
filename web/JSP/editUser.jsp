@@ -12,7 +12,7 @@
 
 <%@ include file="header.jsp"%>
 
-<c:if test="${sessionScope.teacher != null or sessionScope.admin != null}">
+<c:if test="${sessionScope.teacher != null or sessionScope.admin != null or sessionScope.intern != null}">
 <div class="container" id="main">
 
     <div class="jumbotron">
@@ -45,7 +45,7 @@
                             <input type="text" class="form-control" id="firstname" name="firstname" value="${requestScope.user.getFirstname()}">
                         </div>
                         <div class="form-group">
-                            <label for="lastname">Lasttname</label>
+                            <label for="lastname">Lastname</label>
                             <input type="text" class="form-control" id="lastname" name="lastname" value="${requestScope.user.getLastname()}">
                         </div>
                         <div class="form-group">
@@ -63,6 +63,7 @@
                             <input type="password" disabled class="form-control" name="password" id="password" value="${requestScope.user.getPassword()}">
                         </div>
                         <button type="submit" name="saveEdits" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="return" class="btn btn-primary">Return</button>
                     </fieldset>
                 </form>
             </div>

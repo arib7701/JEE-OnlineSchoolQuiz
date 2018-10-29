@@ -85,10 +85,10 @@
                                     </table>
                                 </div>
                             </c:if>
-                            <c:if test="${noquiz != null}">
+                            <c:if test="${quizzes.size() == 0}">
                                 <div class="tab-pane fade" id="${themeTab}" role="tabpanel">
                                     <div class="alert alert-dismissible alert-warning">
-                                        <strong>Heads up! </strong>${noquiz}
+                                        <strong>Heads up! </strong>You don't have quizzes yet. Time to take create one!
                                     </div>
                                 </div>
                             </c:if>

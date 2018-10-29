@@ -23,6 +23,7 @@ public class EditQuiz extends HttpServlet {
         if(req.getParameter("edit") != null){
 
             int nber_Q = Integer.parseInt(req.getParameter("nber_Q"));
+            int quizId = Integer.parseInt(req.getParameter("quizId"));
             int questionId;
             Question question;
             List<Question> questions = new ArrayList();
@@ -36,7 +37,6 @@ public class EditQuiz extends HttpServlet {
                 String pos4 = req.getParameter("pos4_" + questionId);
                 String answer = req.getParameter("answer_" + questionId);
                 String theme = req.getParameter("theme_"+questionId);
-                int quizId = Integer.parseInt(req.getParameter("quizId_"+i));
 
                 question = new Question(questionId, problem, pos1, pos2, pos3, pos4, answer, quizId, theme);
 

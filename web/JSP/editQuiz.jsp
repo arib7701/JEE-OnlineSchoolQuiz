@@ -79,7 +79,7 @@
                                     </div>
                                 </fieldset>
                             </c:forEach>
-                            <input type="text" hidden name="nber_Q" value="${requestScope.questions.size()}">
+                            <input type="text" hidden name="nber_Q" value="${questions.size()}">
                             <button type="submit" name="add" class="btn btn-success">Add New Question</button>
                             <button type="submit" name="edit" class="btn btn-primary">Edit</button>
                             <button type="submit" name="return" class="btn btn-primary">Return</button>

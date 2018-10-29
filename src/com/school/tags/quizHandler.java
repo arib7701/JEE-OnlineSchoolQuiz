@@ -30,11 +30,13 @@ public class quizHandler extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException {
 
-        List<Quiz> quizzes = null;
+        List<Quiz> quizzes;
 
         quizzes = dao.getQuizByTeacherByTheme(userId, theme);
 
-        if(quizzes.size() > 0){
+        if(quizzes != null){
+
+            System.out.println("QUIZZZZZZZZZZZZZZZZZ ----------- " + quizzes.size() + " ------- for THEME " + theme );
 
             List<Long> averages = new ArrayList<>();
             List<Integer> counts = new ArrayList<>();
@@ -50,8 +52,11 @@ public class quizHandler extends SimpleTagSupport {
             getJspContext().setAttribute("averagesQuiz", averages);
             getJspContext().setAttribute("quizzes", quizzes);
         }
-        else {
-            getJspContext().setAttribute("noquiz", "You don't have quizzes yet. Time to take create one!");
+        else if(quizzes == null) {
+
+            System.out.println("QUIZZZZZZZZZZZZZZZZZ ----------- " + quizzes.size() + " ------- for THEME " + theme );
+
+            getJspContext().setAttribute("quizzes", null);
         }
     }
 }

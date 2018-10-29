@@ -50,6 +50,7 @@ public class CheckQuiz extends HttpServlet {
                 //resp.sendRedirect(req.getContextPath() + "/entry_result");
             }
             else {
+                req.setAttribute("error", "You failed the quiz... don't give up ");
                 req.getRequestDispatcher("/JSP/errorPage.jsp").forward(req,resp);
             }
 
